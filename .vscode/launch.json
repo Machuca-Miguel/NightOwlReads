@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Debug Auth Controller",
+        "program": "C:/Users/migue/Documents/Personal/Proyectos/MyLibraryV2/My-Library-Angular-App/server/bin/www.js",
+        "skipFiles": ["<node_internals>/**"]
+      }
+    ]
+  }
