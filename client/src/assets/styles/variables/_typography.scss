@@ -1,0 +1,25 @@
+//Typo;
+$font-family: 'Nunito Sans', sans-serif;
+
+$main-headlines: (
+  h1: (size: 44px, line-height: 128%, font-weight: 500), // Medium
+  h1-reg: (size: 44px, line-height: 128%, font-weight: 400), // Medium
+  h2: (size: 30px, line-height: 120%, weight: 500), // Medium
+  h3: (size: 22px, line-height: 124%, weight: 600), // SemiBold
+  h4: (size: 18px, line-height: 132%, weight: 700) // Bold
+);
+
+$main-text: (
+  L-Light: (size: 22px, line-height: 144%, weight: 300), // Light
+  L-Regular: (size: 22px, line-height: 144%, weight: 500), // Regular
+  L-Bold: (size: 22px, line-height: 144%, weight: 700), // Bold
+  M-Light: (size: 18px, line-height: 132%, weight: 300), // Light
+  M-Regular: (size: 18px, line-height: 132%, weight: 500), // Regular
+  M-Semibold: (size: 18px, line-height: 132%, weight: 600), // Semibold
+  M-Bold: (size: 18px, line-height: 132%, weight: 700), // Bold
+  S-Light: (size: 16px, line-height: 148%, weight: 300), // Light
+  S-Regular: (size: 16px, line-height: 148%, weight: 500), // Regular
+  XS-Light: (size: 14px, line-height: 140%, weight: 300), // Light
+  XS-Regular: (size: 14px, line-height: 140%, weight: 500), // Regular
+  XS-Bold: (size: 14px, line-height: 140%, weight: 700) // Bold
+);

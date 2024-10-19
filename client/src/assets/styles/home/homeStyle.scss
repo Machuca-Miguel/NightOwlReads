@@ -1,0 +1,197 @@
+@import "../variables/variables";
+
+.backgroundPpal {
+  height: calc(100vh - 50px);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-image: url("/images/appImages/bgPpal3.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.homeContent {
+  min-height: 100vh;
+  width: 100%;
+  padding: calc(6vh + 50px) 8vw 6vh 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+
+  .landingCont {
+    width: 100%;
+    height: fit-content;
+    border: 1px solid black;
+    background-color: #3a3a3a75;
+    box-shadow: $Shadow_dark;
+    border-radius: 16px;
+    display: grid;
+    grid-template: "text img";
+    grid-template-columns: 60% 40%;
+    place-items: center;
+
+    .landingText {
+      grid-area: text;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px;
+      color: white;
+
+      span{
+        color: $borderColor;
+        font-weight: bolder;
+      };
+
+      h1 {
+        text-align: start;
+
+        .imgOOwl{
+            padding-bottom:5px ;
+            height: 40px;
+            filter: invert(1);
+            mix-blend-mode: color-dodge;
+        }
+      }
+      .title2 {
+        display: none;
+      }
+      p{
+        padding-left: 8px;
+      }
+
+      .homeSearchCard {
+        padding: 4px 4px 4px 16px;
+        border-radius: 32px;
+        background-color: rgba(255, 255, 255, 0.803);
+
+        input {
+          background-color: transparent;
+          border: none;
+        }
+
+        input:focus {
+          border: none;
+          box-shadow: none;
+        }
+
+        button {
+            background-color: $Secondary_white;
+            border: none;
+            display: inline-block;
+            width: 100px;
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+            padding: 0 24px;
+            z-index: 1;
+            transition: all 0.5s ease-in;
+          }
+
+          button::before,
+          button::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 100%;
+            transform: skew(15deg);
+            transition: all 0.5s;
+            overflow: hidden;
+            z-index: -1;
+          }
+
+          button::before {
+            left: -10px;
+            background: #889473;
+          }
+
+          button::after {
+            right: -10px;
+            background: #b4c598;
+          }
+
+          button:hover::before,
+          button:hover::after {
+            width: 60%;
+          }
+      }
+    }
+
+    .landingImage {
+      grid-area: img;
+      padding: 16px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        // border-radius: 100%;
+        // border-top-right-radius: 0px;
+        // border-bottom-right-radius: 0px;
+        // box-shadow: $Shadow_dark;
+      }
+    }
+  }
+  .landingCont2{
+    width: 100%;
+    border: 1px solid black;
+    background-color: #3a3a3a75;
+    box-shadow: $Shadow_dark;
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template: "user checkOurBooks buymeacoffe";
+    grid-template-columns: 40% 30% 30%;
+    color: white;
+
+    .userCont{
+        border-right:2px solid white ;
+    }
+    .libraryCont{
+        border-right:2px solid white ;
+        padding-left: 32px;
+
+    }
+    .buyMeACoffeCont{
+        padding-left: 32px;
+
+    }
+
+
+  }
+}
+@media (max-width: 1200px) {
+  .homeContent {
+    .landingCont {
+      grid-template:
+        "img"
+        "text";
+      .landingText {
+       padding-top: 0;
+      }
+      .landingImage {
+        max-width: 500px;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .homeContent {
+    .landingCont {
+      .landingText {
+        padding-top: 0;
+        .title1 {
+          display: none;
+        }
+        .title2 {
+          display: block;
+        }
+      }
+
+    }
+  }
+}

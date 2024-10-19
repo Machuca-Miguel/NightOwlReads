@@ -1,0 +1,35 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+@import "../../../assets/styles/variables/typography";
+
+.avatar-container {
+  .avatar {
+    background-color: transparent;
+    border-radius: 100%;
+    width: 50px;
+
+    img {
+      width: 100%;
+    }
+  }
+  .avatar:active {
+    background-color: transparent;
+  }
+
+  .avatarInitials {
+    border: 2px solid $Primary_theme;
+    border-radius: 100%;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+    color: $White;
+
+
+  }
+}
+// .avatar::after {
+//   color: $Primary_theme;
+// }

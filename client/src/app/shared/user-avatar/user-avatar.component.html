@@ -1,0 +1,10 @@
+<div class="avatar-container">
+
+      <div *ngIf="(user | async)?.image; else intialsTemplate" class="avatar">
+
+        <img src="" alt="avatar image" class="avatarImage" />
+      </div>
+    <ng-template #intialsTemplate>
+      <div  class="avatarInitials">{{ initials }}</div>
+    </ng-template>
+</div>

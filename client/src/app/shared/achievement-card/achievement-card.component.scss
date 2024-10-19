@@ -1,0 +1,54 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.achievement-card {
+  display: grid;
+  grid-template: "icon name";
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: $Tertiary_bg_grey;
+  box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: $White;
+  align-items: center;
+
+  .icon-wrapper {
+    display: grid;
+    place-items: center;
+    background-color: $Secondary_bg_grey;
+    border-radius: 100%;
+    height: 42px;
+    width: 42px;
+    .icon {
+      font-size: 24px;
+      margin-top: 6px;
+    }
+  }
+  &.gold {
+    border: 1px solid $Achievement_gold;
+    .icon {
+      color: $Achievement_gold;
+    }
+  }
+
+  &.silver {
+    border: 1px solid $Achievement_silver;
+    .icon {
+      color: $Achievement_silver;
+    }
+  }
+
+  &.bronze {
+    border: 1px solid $Achievement_bronze;
+    .icon {
+      color: $Achievement_bronze;
+    }
+  }
+
+  .achievement-name {
+    font-size: 16px;
+    font-weight: 400;
+    text-wrap: nowrap;
+  }
+}

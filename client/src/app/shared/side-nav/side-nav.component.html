@@ -1,0 +1,42 @@
+<mat-nav-list class="sidenav">
+  <mat-list-item class="list-item" (click)="navigateTo('user/profile')">
+    <div class="list-item-content">
+      <img
+        src="assets/images/appImages/account-circle.svg"
+        alt="Profile Icon"
+        class="icon"
+      />
+      <span>Profile</span>
+    </div>
+  </mat-list-item>
+  <mat-list-item class="list-item" (click)="navigateTo('user/bookshelves')">
+    <div class="list-item-content">
+      <img
+        src="assets/images/appImages/Bookshelf.svg"
+        alt="Bookshelf Icon"
+        class="icon"
+      />
+      <span> Bookshelves </span>
+    </div>
+  </mat-list-item>
+  <mat-list-item class="list-item" (click)="navigateTo('user/friends')">
+    <div class="list-item-content">
+      <img
+        src="assets/images/appImages/users.svg"
+        alt="Friends Icon"
+        class="icon"
+      />
+      <span> Friends </span>
+    </div>
+  </mat-list-item>
+  <mat-list-item class="list-item" (click)="navigateTo('user/stats')">
+    <div class="list-item-content">
+      <img
+        src="assets/images/appImages/dashboard.svg"
+        alt="Stats Icon"
+        class="icon"
+      />
+      <span> Stats </span>
+    </div>
+  </mat-list-item>
+</mat-nav-list>

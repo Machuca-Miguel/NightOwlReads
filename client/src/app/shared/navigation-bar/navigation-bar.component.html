@@ -1,0 +1,52 @@
+<mat-toolbar class="navigationBar">
+  <ng-container>
+    <img src="assets/images/appImages/logobg.png" alt="" class="logo" />
+    <h1>
+      <span>Night<span class="accentText">Owl</span>Reads</span>
+    </h1>
+  </ng-container>
+  <div class="navActions">
+    <ng-container *ngIf="!isLogged$.value; else loggedUser">
+      <div class="navLinks">
+        <button class="navLink" routerLink="/">Home</button>
+        <button class="navLink" routerLink="/about">About</button>
+        <button mat-button class="navLink" routerLink="/search">
+          Looking for a book?
+        </button>
+      </div>
+      <div class="signActions">
+        <button class="btn-flat" (click)="openAuthModal()">Sign In</button>
+        <button class="btn" (click)="openRegisterModal()">Sign Up</button>
+      </div>
+    </ng-container>
+
+    <ng-template #loggedUser>
+      <div class="navLinks">
+        <button class="navLink" routerLink="/">My profile</button>
+        <button class="navLink" routerLink="/about">My bookshelves</button>
+        <button mat-button class="navLink" routerLink="/search">
+          Looking for a book?
+        </button>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-button" [matMenuTriggerFor]="menu">
+          <app-user-avatar *ngIf="user" [user]="user"></app-user-avatar>
+        </button>
+        <mat-menu  class="dropdown-menu"  #menu="matMenu">
+          <button mat-menu-item (click)="logout()" >
+            <span>Logout</span>
+            <mat-icon>logout</mat-icon>
+          </button>
+          <button mat-menu-item >
+            <span>Check voice mail</span>
+            <mat-icon>voicemail</mat-icon>
+          </button>
+          <button mat-menu-item>
+            <span>Disable alerts</span>
+            <mat-icon>notifications_off</mat-icon>
+          </button>
+        </mat-menu>
+      </div>
+    </ng-template>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,46 @@
+<article class="auth-modal">
+  <button (click)="this.dialogRef.close()" class="auth-modal__btn-back">
+    <mat-icon class="auth-modal__icon">chevron_left</mat-icon>
+  </button>
+  <div
+    class="auth-modal__text-container"
+    [ngClass]="{
+      'slide-right': transitionText && showLoginModal,
+      'slide-left': transitionText && !showLoginModal,
+      'login': showLoginModal && !transitionText,
+    }"
+  >
+    <h1 *ngIf="showLoginModal; else registerText">Welcome Back!</h1>
+    <ng-template #registerText>
+      <h1>Join us!</h1>
+    </ng-template>
+    <hr />
+    <p *ngIf="showLoginModal; else registerDescription">
+      We're excited to have you back here again. Log in and enjoy your
+      experience!
+    </p>
+    <ng-template #registerDescription>
+      <p>
+        We're delighted to welcome you. Sign up and start being part of our
+        community. We hope to see you soon!
+      </p>
+    </ng-template>
+  </div>
+
+  <div class="auth-modal__form-container">
+    <div class="login-form">
+      <app-login></app-login>
+      <p>
+        Don’t have an account yet?
+        <span (click)="toggleView(false)">Sign up</span>
+      </p>
+    </div>
+    <div class="register-form">
+      <app-register></app-register>
+      <p>
+        Are you part of our community?
+        <span (click)="toggleView(true)">Log in</span>
+      </p>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,68 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+@import "../../../assets/styles/variables/typography";
+
+.navigationBar {
+  background: $Primary_bg_grey;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  color: white;
+  h1 {
+    font-size: 32px;
+    .accentText {
+      color: $Primary_theme;
+      font-weight: bolder;
+    }
+  }
+  .logo {
+    height: 55px;
+    margin-right: 16px;
+    mix-blend-mode: hard-light;
+  }
+
+  .navActions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .navLinks {
+      display: flex;
+      gap: 12px;
+      margin-left: 48px;
+      .navLink {
+        color: inherit;
+        background-color: transparent;
+        border: none;
+        font-size: 20px;
+      }
+      .navLink:hover {
+        color: $Secondary_theme;
+      }
+    }
+    .signActions {
+      @include flex-center;
+      gap: 12px;
+
+      .btn {
+        @include btn;
+      }
+
+      .btn-flat {
+        @include btn-flat;
+      }
+    }
+
+    .dropdown {
+      .dropdown-button {
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 20px;
+        @include flex-center;
+        cursor: pointer;
+      }
+    }
+  }
+}

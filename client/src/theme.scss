@@ -1,0 +1,196 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+
+
+//Theme colors
+$Primary_theme: #FF9222;
+$Secondary_theme: #FFA952;
+$Gradient_purple_corp: linear-gradient(
+  159.13deg,
+  #FF8100 77%,
+  #FF6600 100%
+);
+
+//Greyscale colors
+$White: #FFFFFF;
+$Secondary_white: #F5F3F7;
+$Spacer_light: #E5E0EB;
+$Spacer_reg: #D9D1E0;
+$Spacer_light: #E5E0EB;
+$Disabled: #D4D2D5;
+$Border: #ABA7AF;
+$Hint_text: #4B3A5A;
+$Primary_bg_grey: #2B3035;
+$Black: #1A141F;
+
+//Secondary colors
+$Secondary_danger: #ED4548;
+$Secondary_succes: #46CD90;
+$Secondary_warn: #FFA220;
+$Secondary_transparent: #3a3a3a70;
+
+//Status colors
+
+$Status_read: #D51A52;
+$Status_to_read: #FF9500;
+$Status_reading: #00B998;
+$Status_wishlist: #0F0BAB;
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$my-library-angular-app-primary: mat.define-palette(mat.$indigo-palette);
+$my-library-angular-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$my-library-angular-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$my-library-angular-app-theme: mat.define-light-theme((
+  color: (
+    primary: $my-library-angular-app-primary,
+    accent: $my-library-angular-app-accent,
+    warn: $my-library-angular-app-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($my-library-angular-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// Define the palettes for your theme using your custom colors
+$my-dark-theme-primary: mat.define-palette((
+  50 : #f3e8fc,
+    100 : #e2c5f8,
+    200 : #ce9ff3,
+    300 : #ba79ee,
+    400 : #ac5ceb,
+    500 : #9d3fe7,
+    600 : #9539e4,
+    700 : #8b31e0,
+    800 : #8129dd,
+    900 : #6f1bd7,
+    A100 : #ffffff,
+    A200 : #e8d8ff,
+    A400 : #cba5ff,
+    A700 : #bc8bff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+));
+
+$my-dark-theme-accent: mat.define-palette((
+  50: $Status_read,
+  100: $Status_to_read,
+  200: $Status_reading,
+  300: $Status_wishlist,
+  400: $Status_wishlist,
+  500: $Status_wishlist,
+  600: $Status_wishlist,
+  700: $Status_wishlist,
+  800: $Status_wishlist,
+  900: $Status_wishlist,
+  A100: $Status_wishlist,
+  A200: $Status_wishlist,
+  A400: $Status_wishlist,
+  A700: $Status_wishlist,
+  contrast: (
+    50: $Black,
+    100: $Black,
+    200: $Black,
+    300: $Black,
+    400: $Black,
+    500: $White,
+    600: $White,
+    700: $White,
+    800: $White,
+    900: $White,
+    A100: $Black,
+    A200: $Black,
+    A400: $Black,
+    A700: $Black,
+  )
+));
+
+$my-dark-theme-warn: mat.define-palette((
+  50: $Status_read,
+  100: $Status_to_read,
+  200: $Status_reading,
+  300: $Status_wishlist,
+  400: $Status_wishlist,
+  500: $Status_wishlist,
+  600: $Status_wishlist,
+  700: $Status_wishlist,
+  800: $Status_wishlist,
+  900: $Status_wishlist,
+  A100: $Status_wishlist,
+  A200: $Status_wishlist,
+  A400: $Status_wishlist,
+  A700: $Status_wishlist,
+  contrast: (
+    50: $Black,
+    100: $Black,
+    200: $Black,
+    300: $Black,
+    400: $Black,
+    500: $White,
+    600: $White,
+    700: $White,
+    800: $White,
+    900: $White,
+    A100: $Black,
+    A200: $Black,
+    A400: $Black,
+    A700: $Black,
+  )
+));
+
+
+
+// The warn palette is optional (defaults to red).
+$my-dark-theme-warn: mat.define-palette(mat.$red-palette);
+
+// Define a dark theme
+$my-dark-theme: mat.define-dark-theme((
+  color: (
+    primary: $my-dark-theme-primary,
+    accent: $my-dark-theme-accent,
+    warn: $my-dark-theme-warn,
+  ),
+
+));
+
+// Include theme styles for core and each component used in your app.
+@include mat.all-component-themes($my-dark-theme);

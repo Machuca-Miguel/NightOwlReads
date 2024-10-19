@@ -1,0 +1,40 @@
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+  <div class="input-labelled">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      formControlName="email"
+      id="email"
+      placeholder="Enter your email address"
+      autocomplete="new-email"
+    />
+  </div>
+  <div class="input-labelled--password">
+    <label for="password">Password</label>
+    <div class="password-input-container">
+      <input
+        type="password"
+        formControlName="password"
+        id="password"
+        placeholder="Enter your password"
+        autocomplete="new-password"
+      />
+      <mat-icon class="icon">visibility</mat-icon>
+    </div>
+  </div>
+  <div class="input-labelled--password">
+    <label for="repPassword">Repeat Password</label>
+    <div class="password-input-container">
+      <input
+        type="password"
+        formControlName="repPassword"
+        id="repPassword"
+        placeholder="Repeat your password"
+        autocomplete="new-repPassword"
+      />
+      <mat-icon class="icon">visibility</mat-icon>
+    </div>
+  </div>
+  <button class="register-btn" type="submit">
+    Register
+  </button>

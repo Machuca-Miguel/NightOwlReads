@@ -1,0 +1,255 @@
+// Importación de variables y tipografía
+@import "./variables";
+@import "./typography";
+
+// Mixins para Flexbox
+@mixin flex {
+  display: flex;
+}
+
+@mixin flex-center {
+  @include flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-center-start {
+  @include flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+@mixin flex-column {
+  @include flex;
+  flex-direction: column;
+}
+
+@mixin flex-column-center {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-space-between {
+  @include flex;
+  justify-content: space-between;
+}
+@mixin flex-column-space-between {
+  @include flex-column;
+  justify-content: space-between;
+}
+
+// Mixin para Encabezados Principales
+@mixin main-text {
+  @each $name, $specs in $main-text {
+    #{$name} {
+      font-size: map-get($specs, "size");
+      line-height: map-get($specs, "line-height");
+      font-weight: map-get($specs, "weight");
+      font-family: $font-family;
+    }
+  }
+}
+
+// Mixins para Botones
+@mixin btn {
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: $White;
+  background-color: $Primary_theme;
+  border: 2px solid $Primary_theme;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    color: $Primary_theme;
+  }
+  &:active {
+    color: $Primary_bg_grey;
+    background-color: $Secondary_theme;
+    scale: 0.99;
+  }
+}
+
+@mixin btn-outline {
+  @include btn;
+  background-color: transparent;
+  color: $Primary_theme;
+
+  &:hover {
+    background-color: $Primary_theme;
+    color: $White;
+  }
+}
+
+@mixin btn-flat {
+  @include btn;
+  background-color: transparent;
+  border-color: transparent;
+
+  &:hover {
+    border-color: $Primary_theme;
+    color: $Primary_theme;
+  }
+  &:active {
+    color: $Primary_bg_grey;
+  }
+}
+
+@mixin btn-back {
+  display: inline-block;
+  cursor: pointer;
+  font-weight: bold;
+  color: $White;
+  background-color: transparent;
+  border: none;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $Primary_bg_grey;
+  }
+  &:active {
+    color: inherit;
+  }
+}
+
+// Mixins para Formularios
+@mixin form-input {
+  label {
+    padding-left: 12px;
+    font-size: small;
+    color: $Spacer_reg;
+    font-weight: 200;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    outline: none;
+    background-color: $Spacer_light;
+    border: 1px solid $Primary_bg_grey;
+    padding-left: 12px;
+    font-size: 12px;
+    transition: background-color 0.3s;
+
+    &:focus {
+      background-color: $Spacer_reg;
+    }
+  }
+}
+
+@mixin form-search {
+  border-radius: 12px;
+  border: 1px solid $Primary_bg_grey;
+  background-color: $Spacer_light;
+  overflow: hidden;
+  display: flex;
+  height: 40px;
+
+  input[type="text"] {
+    flex: 1;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    padding-left: 24px;
+    transition: background-color 0.3s;
+
+    &:focus {
+      background-color: $Spacer_reg;
+    }
+  }
+
+  .search-button {
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    background-color: $Secondary_theme;
+    border: none;
+    font-weight: 300;
+    color: $Primary_bg_grey;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+
+      p {
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+  }
+  .search-button::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    transform: skew(-30deg);
+    transition: all 0.5s;
+    overflow: hidden;
+    z-index: -1;
+  }
+
+  .search-button::before {
+    left: -10px;
+    background: $Primary_theme;
+  }
+
+
+
+  .search-button:hover::before,
+  .search-button:hover::after {
+    width: 130%;;
+    z-index: 1;
+
+  }
+}
+
+@mixin form-labelled {
+  @include flex-column-center;
+  @include form-input;
+  align-items: flex-start;
+
+  width: 100%;
+  input[type="text"] {
+    height: 40px !important;
+    border-radius: 12px;
+  }
+
+}
+@mixin form-labelled-password {
+  @include flex-column-center;
+  @include form-input;
+  width: 100%;
+  align-items: flex-start;
+  div {
+    @include flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+
+    input[type="password"] {
+      height: 40px !important;
+      border-radius: 12px;
+      position: relative;
+    }
+    mat-icon {
+      position: absolute;
+      color: $Primary_bg_grey;
+      right: 12px;
+      top: 10px;
+    }
+  }
+}

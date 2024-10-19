@@ -1,0 +1,24 @@
+<section class="user-profile">
+  <app-side-nav></app-side-nav>
+  <article class="main-content">
+    <div class="header">
+    </div>
+    <div class="user-info">
+     <div class="user-info__img-wrapper">
+       <img src="{{ user.image ? user.image : 'assets/images/appImages/OwlLogo.png' }}" ngClass="{{ user.image ? 'user-image' : 'default-image' }}" alt="User image">
+
+     </div>
+      <div class="user-info__details">
+        <ng-container *ngIf="user.name || user.lastName; else emailTemplate">
+          <h2>{{ user.name }} {{ user.lastName }}</h2>
+          <p>{{ user.email }}</p>
+        </ng-container>
+        <ng-template #emailTemplate>
+          <h2>{{ user.email }}</h2>
+        </ng-template>
+        </div>
+    </div>
+
+    <router-outlet></router-outlet>
+  </article>
+</section>

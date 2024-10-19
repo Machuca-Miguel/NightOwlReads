@@ -1,0 +1,63 @@
+// Custom Theming for Angular Material
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$My-Library-Angular-App-primary: mat.define-palette(mat.$indigo-palette);
+$My-Library-Angular-App-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$My-Library-Angular-App-warn: mat.define-palette(mat.$red-palette);
+
+$My-Library-Angular-App-theme: mat.define-light-theme((
+  color: (
+    primary: $My-Library-Angular-App-primary,
+    accent: $My-Library-Angular-App-accent,
+    warn: $My-Library-Angular-App-warn,
+  )
+));
+
+@include mat.all-component-themes($My-Library-Angular-App-theme);
+
+html, body {
+  height: 100%;
+  --mat-menu-container-color: #2B3035;
+  --mat-menu-item-label-text-color: white;
+  --mat-menu-item-icon-color: #FF9222;
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
+}
+
+hr {
+  border-color: #2B3035;
+  border-style: groove;
+}
+
+.success-snackbar {
+  --mdc-snackbar-container-color: #4caf50;
+  .mat-mdc-button{
+    color: white!important;
+  }
+}
+
+.error-snackbar {
+  --mdc-snackbar-container-color: #f44336;
+  .mat-mdc-button{
+    color: white!important;
+  }
+}
+
+.general-snackbar {
+  --mdc-snackbar-container-color: #FF9222;
+  .mat-mdc-button{
+    color: white!important;
+  };
+}
+
+

@@ -1,0 +1,35 @@
+client/node_modules/
+server/node_modules/
+
+# Archivos de logs y temporales
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignorar dist y build en ambos proyectos
+client/dist/
+server/dist/
+
+# Sistemas operativos y editor de texto
+.DS_Store
+*.swp
+
+# Visual Studio Code
+.vscode/
+
+# Miscellaneous
+client/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+client/env/
+server/env/

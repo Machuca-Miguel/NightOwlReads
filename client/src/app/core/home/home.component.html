@@ -1,0 +1,101 @@
+<section class="home__background"></section>
+<section class="home">
+  <div class="home__main">
+    <div class="home__main__text">
+      <h1 class="home__main__textXL">
+        Discover a world of kn<span>owl</span>edge and adventures within the
+        pages of our
+        <span class="home__owl__text"
+          >b<img
+            class="home__owl__img"
+            src="assets\images\appImages\ooOwl.svg"
+            alt=""
+          />ks.</span
+        >
+      </h1>
+      <h1 class="home__main__textXS">Discover a world of knowledge</h1>
+      <div class="home__main__text__form-search">
+        <input type="text" name="searchBooks" id="searchBooks"  />
+        <button class="search-button" type="submit">
+          <div
+            ><mat-icon>search</mat-icon>
+            <p>Search</p>
+          </div>
+        </button>
+      </div>
+      <p>
+        Find your next favorite book with our powerful search tool. Explore a
+        wide variety of titles, genres, and authors to satisfy your curiosity
+        and thirst for knowledge
+      </p>
+    </div>
+    <div class="home__main__image">
+      <img src="assets/images/appImages/landingImg12.png" alt="" />
+    </div>
+  </div>
+  <div class="home__features">
+    <div
+      class="home__features__card"
+      [ngClass]="{
+        staticFeatureImage: featureImageURL['library'].isImageStatic
+      }"
+      (mouseover)="play('library')"
+      (mouseout)="stop('library')"
+    >
+      <img
+        class="home__features__icon"
+        [src]="featureImageURL['library'].src"
+      /><span>Personalize your Libraries</span>
+    </div>
+    <div
+      class="home__features__card"
+      [ngClass]="{
+        staticFeatureImage: featureImageURL['ratings'].isImageStatic
+      }"
+      (mouseover)="play('ratings')"
+      (mouseout)="stop('ratings')"
+    >
+      <img
+        class="home__features__icon"
+        [src]="featureImageURL['ratings'].src"
+      /><span>Read, Review & Ratings</span>
+    </div>
+    <div
+      class="home__features__card"
+      [ngClass]="{ staticFeatureImage: featureImageURL['clubs'].isImageStatic }"
+      (mouseover)="play('clubs')"
+      (mouseout)="stop('clubs')"
+    >
+      <img
+        class="home__features__icon"
+        [src]="featureImageURL['clubs'].src"
+      /><span>Join our Book Clubs</span>
+    </div>
+    <div
+      class="home__features__card"
+      [ngClass]="{
+        staticFeatureImage: featureImageURL['friends'].isImageStatic
+      }"
+      (mouseover)="play('friends')"
+      (mouseout)="stop('friends')"
+    >
+      <img
+        class="home__features__icon"
+        [src]="featureImageURL['friends'].src"
+      /><span>Connect with NightOwlReaders</span>
+    </div>
+    <div
+      class="home__features__card"
+      [ngClass]="{
+        staticFeatureImage: featureImageURL['achievements'].isImageStatic
+      }"
+      (mouseover)="play('achievements')"
+      (mouseout)="stop('achievements')"
+    >
+      <img
+        class="home__features__icon"
+        [src]="featureImageURL['achievements'].src"
+      /><span>Unlock your achievements</span>
+    </div>
+  </div>
+</section>

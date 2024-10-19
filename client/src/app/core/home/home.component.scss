@@ -1,0 +1,160 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.home__background {
+  height: calc(100vh - 50px);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-image: url("../../../assets/images/appImages/bgPpal3.jpg");
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+.home {
+  margin: 0;
+  min-height: calc(100vh - 60px);
+  max-width: 100vw;
+  padding: calc(6vh + 50px) 8vw 6vh 8vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 16px;
+
+  .home__main {
+    width: 100%;
+    height: fit-content;
+    border: 1px solid black;
+    background-color: #3a3a3a75;
+    box-shadow: $Shadow_dark;
+    border-radius: 16px;
+    display: grid;
+    grid-template: "text img";
+    grid-template-columns: 60% 40%;
+    place-items: center;
+
+    .home__main__text {
+      grid-area: text;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 32px;
+      color: white;
+
+      span {
+        color: $Primary_theme;
+        font-weight: bolder;
+      }
+
+      h1 {
+        text-align: start;
+        font-size: 36px;
+
+        .home__owl__text {
+          white-space: nowrap;
+          color: $White;
+          font-weight: inherit;
+        }
+        .home__owl__img {
+          position: relative;
+          top: 4px;
+          height: 35px;
+          margin: 0px 2px;
+          ;
+        }
+      }
+      .title2 {
+        display: none;
+      }
+
+      &__form-search {
+        @include form-search;
+      }
+    }
+
+    .home__main__image {
+      grid-area: img;
+      padding: 16px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .home__features {
+    height: min-content;
+    border: 1px solid black;
+    background-color: #3a3a3a75;
+    box-shadow: $Shadow_dark;
+    border-radius: 16px;
+    padding: 32px;
+    display: grid;
+    grid-template: "featLibrary featRatings featClubs featFriends featAchievements";
+    grid-template-columns: auto;
+    color: white;
+
+    .home__features__card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+
+      .home__features__icon {
+        width: 90px;
+        height: 90px;
+        mix-blend-mode: color-dodge;
+        filter: hue-rotate(30deg) invert(1) opacity(100%) brightness(250%);
+        background-size: cover;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .staticFeatureImage {
+      gap: 10px;
+      & .home__features__icon {
+        width: 65px;
+        height: 65px;
+        margin-top: 12px;
+        margin-bottom: 5px;
+
+      }
+    }
+  }
+}
+@media (max-width: 1200px) {
+  .home {
+    .home__main {
+      grid-template:
+        "img"
+        "text";
+      .home__main__text {
+        padding-top: 0;
+      }
+      .home__main__image {
+        max-width: 500px;
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+@media (max-width: 576px) {
+  .home {
+    .home__main {
+      .home__main__text {
+        padding-top: 0;
+        .home__main__textXL {
+          display: none;
+        }
+        .home__main__textXS {
+          display: block;
+        }
+      }
+    }
+  }
+}

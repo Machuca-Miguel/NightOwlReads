@@ -1,0 +1,154 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/typography";
+@import "../../../assets/styles/variables/mixins";
+
+.footer {
+  height: 350px;
+  width: 100%;
+
+  &__main-section {
+    @include flex-center;
+    justify-content:space-between ;
+    height: 100%;
+    width: 100%;
+    background-color: $Primary_bg_grey;
+    color: $White;
+    padding-top: 50px;
+
+    &__container {
+      @include flex-column-space-between;
+      height: 100%;
+      width: 50%;
+      gap: 16px;
+      padding: 0px 20px 50px 70px;
+    }
+  }
+
+  &__logo {
+    @include flex;
+    align-items: center;
+
+    h1 {
+      font-size: 32px;
+      font-weight: 500;
+
+      .footer__accent-text {
+        color: $Primary_theme;
+        font-weight: bolder;
+      }
+    }
+
+    .footer__logo-image {
+      height: 55px;
+      margin-right: 16px;
+      mix-blend-mode: hard-light;
+    }
+  }
+
+  &__text {
+    font-size: 24px;
+  }
+
+  &__button {
+    @include btn;
+    width: 150px;
+    color: $Primary_bg_grey;
+    }
+
+  &__contact {
+    @include flex-column-space-between;
+    height: 100%;
+    width: 50%;
+    padding: 20px;
+    padding-bottom: 0px;
+    border: 2px solid $Primary_theme;
+    border-width: 2px 0 0 2px;
+    border-top-left-radius: 150px;
+  }
+
+  &__contact-info {
+    @include flex-space-between;
+    height: 100%;
+    padding: 50px;
+    padding-bottom: 0px;
+  }
+
+  &__contact-social {
+    @include flex-column;
+    gap: 16px;
+    color: $Primary_theme;
+
+    a {
+      color: $White;
+    }
+  }
+
+  &__contact-social-container {
+    @include flex-column;
+    color: $Primary_theme;
+    gap: 16px;
+  }
+
+  &__contact-social-media {
+    @include flex;
+    gap: 16px;
+
+    .footer__media-button {
+      @include btn-outline;
+      @include flex-center;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: 1px solid $Primary_theme;
+      border-radius: 100%;
+
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .footer__media-button:hover img {
+      filter: invert(1);
+    }
+
+    .footer__media-button:active {
+      transition: 0s;
+      background-color: $Secondary_theme;
+      border-color: $Secondary_theme;
+
+      img {
+        scale: 0.9;
+      }
+    }
+  }
+
+  &__license {
+    color: $Disabled;
+    align-self: end;
+  }
+}
+@media (max-width: 1200px) {
+  .footer {
+    height: fit-content;
+    &__main-section {
+      @include flex-column-center;
+    }
+
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .footer {
+    &__contact {
+      @include flex-column;
+
+      .footer__contact-info {
+        @include flex-column-center;
+        gap: 16px;
+      }
+    }
+  }
+}

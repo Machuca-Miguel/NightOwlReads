@@ -1,0 +1,46 @@
+//Corporative colors
+$Primary_theme: #FF9222;
+$Secondary_theme: #FFA952;
+$Gradient_purple_corp: linear-gradient(
+  159.13deg,
+  #FF8100 77%,
+  #FF6600 100%
+);
+
+
+//Greyscale colors
+$White: #FFFFFF;
+$Secondary_white: #F5F3F7;
+$Spacer_light: #E5E0EB;
+$Spacer_reg: #D9D1E0;
+$Spacer_light: #E5E0EB;
+$Disabled: #D4D2D5;
+$Border: #ABA7AF;
+$Hint_text: #4B3A5A;
+$Primary_bg_grey: #2B3035;
+$Secondary_bg_grey: #32373C;
+$Tertiary_bg_grey: #42484F;
+$Tertiary_bg_transparent-grey: rgba(58, 58, 58, 0.45);
+$Black: #1A141F;
+
+//Secondary colors
+$Secondary_danger: #ED4548;
+$Secondary_succes: #46CD90;
+$Secondary_warn: #FFA220;
+$Secondary_transparent: #3a3a3a70;
+
+//Status colors
+
+$Status_read: #D51A52;
+$Status_to_read: #FF9500;
+$Status_reading: #00B998;
+$Status_wishlist: #0F0BAB;
+
+
+//Shadows
+$Shadow_dark: 0px 0px 10px 4px $Black;
+
+// Achievement category
+$Achievement_gold: #FFD700;
+$Achievement_silver: #C0C0C0;
+$Achievement_bronze: #CD7F32;

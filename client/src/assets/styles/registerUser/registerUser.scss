@@ -1,0 +1,167 @@
+@import "../variables/variables";
+
+.contentPpal {
+  min-height: calc(100vh - 50px);
+  padding: calc(3vh + 50px) 2vw 3vh 2vw;
+  display: grid;
+  place-items: center;
+  color: white;
+
+  .cardFormRegister,
+  .cardFromLogin {
+    border: 1px solid black;
+    background-color: #3a3a3a75;
+    box-shadow: $Shadow_dark;
+    border-radius: 16px;
+    display: grid;
+    grid-template:
+      "header"
+      "form";
+
+    .header {
+      grid-area: header;
+      padding: 24px;
+      padding-bottom: 0;
+      // background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      //   url("/images/appImages/bookshelf.jpg");
+      background-position: center;
+      background-repeat: repeat-x;
+      background-size: 50% auto;
+      overflow: hidden;
+      border-radius: 16px 16px 0 0;
+      border-bottom: 1px solid black;
+    }
+
+    .link {
+      text-decoration: none;
+      color: $Secondary_white;
+    }
+
+    .submitButton {
+      background-color: $Secondary_white;
+    }
+    .cancelButton {
+      background-color: rgb(255, 86, 86);
+    }
+
+    .submitButton,
+    .cancelButton {
+      display: inline-block;
+      width: 150px;
+      border-radius: 10px;
+      border: 1px solid black;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s ease-in;
+      z-index: 1;
+      color: black;
+    }
+
+    .submitButton::before,
+    .submitButton::after,
+    .cancelButton::before,
+    .cancelButton::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 0;
+      height: 100%;
+      transform: skew(15deg);
+      transition: all 0.5s;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .submitButton:hover::before,
+    .submitButton:hover::after,
+    .cancelButton:hover::before,
+    .cancelButton:hover::after {
+      width: 30%;
+    }
+
+    .submitButton::before {
+      left: -6px;
+      background: #889473;
+    }
+
+    .submitButton::after {
+      right: -6px;
+      background: #b4c598;
+    }
+
+    .cancelButton::before {
+      left: -6px;
+      background: #e34c4c;
+    }
+
+    .cancelButton::after {
+      right: -6px;
+      background: #ff6161;
+    }
+    .submitButton:hover {
+      color: white;
+    }
+    .cancelButton:hover {
+      color: white;
+    }
+  }
+  .cardFormRegister {
+    Form {
+      grid-area: form;
+      padding: 24px;
+      display: grid;
+      grid-template:
+        " first_name first_name last_name last_name"
+        "user_name user_name email email"
+        " password password password birth_year"
+        "buttons buttons buttons buttons";
+
+      grid-template-columns: 1fr 1fr 1.3fr 0.7fr;
+
+      gap: 8px;
+
+      .first_name {
+        grid-area: first_name;
+        min-width: 300px;
+      }
+      .last_name {
+        grid-area: last_name;
+        min-width: 300px;
+      }
+      .user_name {
+        grid-area: user_name;
+        min-width: 300px;
+      }
+      .email {
+        grid-area: email;
+        min-width: 300px;
+      }
+      .password {
+        grid-area: password;
+      }
+      .birth_year {
+        grid-area: birth_year;
+      }
+
+      .buttons {
+        grid-area: buttons;
+      }
+    }
+  }
+
+  .cardFromLogin {
+    Form {
+      padding: 24px;
+      grid-template:
+        "input"
+        "input"
+        "text"
+        "buttonss";
+
+      .email {
+        grid-area: input;
+        width: clamp(300px, 50vw, 600px);
+      }
+    }
+  }
+}

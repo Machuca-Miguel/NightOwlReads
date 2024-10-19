@@ -1,0 +1,29 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/typography";
+@import "../../../assets/styles/variables/mixins";
+
+.sidenav {
+  width: 100%;
+  gap: 8px;
+  .list-item {
+
+    border-radius: 12px;
+    font-size: 20px;
+    padding: 8px;
+
+    .list-item-content{
+      @include flex-center;
+      justify-content: flex-start;
+      gap: 8px;
+      color: $White;
+
+      .icon {
+        width: 32px;
+      }
+    }
+    &:hover {
+      background-color: $Tertiary_bg_transparent-grey;
+      cursor: pointer;
+    }
+  }
+}

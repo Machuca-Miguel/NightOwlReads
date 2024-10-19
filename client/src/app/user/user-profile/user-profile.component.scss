@@ -1,0 +1,106 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/typography";
+@import "../../../assets/styles/variables/mixins";
+
+.user-details {
+  padding: 16px 5vw;
+  display: grid;
+  grid-template: "main" "side";
+  grid-template-columns: 80% 20%;
+  gap: 16px;
+
+  .main,
+  .side {
+    .title {
+      @include flex-center;
+      justify-content: flex-start;
+      font-size: 20px;
+      color: $Primary_theme;
+      border-bottom: 1px solid $Primary_theme;
+      margin-bottom: 8px;
+      .icon {
+        margin-right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+      }
+    }
+  }
+  .main {
+    .details {
+      width: 100%;
+      padding: 12px;
+      @include flex;
+      color: $Secondary_white;
+      .details-user-info,
+      .details-user-media {
+        width: 50%;
+        @include flex-column;
+
+        gap: 8px;
+
+        .detail-item {
+          @include flex-center-start;
+          .icon {
+            margin-right: 8px;
+            font-size: 24px;
+            width: 24px;
+            color: $Primary_theme;
+          }
+          span {
+            height: 100%;
+            justify-self: center;
+          }
+        }
+      }
+    }
+    .achievements {
+      .achievements-container {
+        // display: flex;
+        // overflow-x: hidden;
+        padding: 16px 8px;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        ::ng-deep .mat-mdc-tab:not(.mdc-tab--stacked) {
+          height: 100%;
+
+          &:hover {
+            background-color: transparent !important;
+            .achievement-card {
+              background-color: $Secondary_bg_grey;
+            }
+          }
+        }
+      }
+
+      ::ng-deep .mdc-tab{
+padding: 0 8px      }
+
+      ::ng-deep .mat-mdc-tab-group,
+      .mat-mdc-tab-nav-bar {
+        --mdc-tab-indicator-active-indicator-color: transparent;
+        --mat-tab-header-disabled-ripple-color: rgba(0, 0, 0, 0.38);
+
+        --mat-tab-header-inactive-label-text-color: transparent;
+        --mat-tab-header-active-label-text-color: $Primary_theme;
+        --mat-tab-header-active-ripple-color: $Primary_theme;
+        --mat-tab-header-inactive-ripple-color: $Primary_theme;
+        --mat-tab-header-inactive-focus-label-text-color: transparent;
+        --mat-tab-header-inactive-hover-label-text-color: transparent;
+        --mat-tab-header-active-focus-label-text-color: $Primary_theme;
+        --mat-tab-header-active-hover-label-text-color: $Primary_theme;
+        --mat-tab-header-active-focus-indicator-color: $Primary_theme;
+        --mat-tab-header-active-hover-indicator-color: $Primary_theme;
+
+      }
+
+      ::ng-deep .mat-mdc-tab-header{
+        --mdc-tab-indicator-active-indicator-height: 0px;
+      }
+      ::ng-deep .mat-mdc-tab-header-pagination-chevron{
+        border-color: $Primary_theme;
+      }
+    }
+  }
+}
