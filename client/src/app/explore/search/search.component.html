@@ -1,0 +1,17 @@
+<article class="search-container" >
+  <div class="header">
+    <h2 class="title">
+      <span class="accent">Search for books</span> Find your next favorite book
+    </h2>
+    <app-search-bar (search)="handleSearch($event)"> </app-search-bar>
+  </div>
+  <div class="search-results">
+    <h5 class="placeholder">
+      SEARCH RESULTS FOR
+      <span>
+        {{ searchQuery }}
+      </span>
+    </h5>
+    <app-book-list> </app-book-list>
+  </div>
+</article>

@@ -1,0 +1,44 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.search-container {
+  @include flex-column;
+  gap: 12px;
+  color: $White;
+
+  .header {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+    background-color: $Tertiary_bg_grey;
+    padding: 24px 32px;
+
+    .title {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-weight: 500;
+
+      .accent {
+        font-size: larger;
+        color: $Secondary_theme;
+      }
+    }
+  }
+
+  .search-results{
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+    background-color: $Tertiary_bg_grey;
+    padding: 24px 32px;
+
+    .placeholder{
+      font-size: 1em;
+      .accent{
+
+        color: $Secondary_theme;
+      }
+    }
+
+  }
+}

@@ -5,6 +5,7 @@ import { AuthModalComponent } from '../../auth/auth-modal/auth-modal.component';
 import { UserApiService } from 'src/app/services/api/user-api.service';
 import { User } from 'src/app/models/user';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -19,6 +20,7 @@ export class NavigationBarComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private authService: AuthService,
+    private router: Router,
     public userApi: UserApiService,
     private cdr: ChangeDetectorRef
   ) {}
@@ -46,7 +48,12 @@ export class NavigationBarComponent implements OnInit {
 
   public logout(): void {
     this.authService.logout();
+    this.router.navigate(['/']);
     this.cdr.detectChanges()
 
+  }
+
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
   }
 }

@@ -20,7 +20,7 @@ $My-Library-Angular-App-theme: mat.define-light-theme((
 html, body {
   height: 100%;
   --mat-menu-container-color: #2B3035;
-  --mat-menu-item-label-text-color: white;
+  --mat-menu-item-label-text-color: #F5F3F7;
   --mat-menu-item-icon-color: #FF9222;
 }
 
@@ -42,21 +42,21 @@ hr {
 .success-snackbar {
   --mdc-snackbar-container-color: #4caf50;
   .mat-mdc-button{
-    color: white!important;
+    color:  #F5F3F7!important;
   }
 }
 
 .error-snackbar {
   --mdc-snackbar-container-color: #f44336;
   .mat-mdc-button{
-    color: white!important;
+    color: #F5F3F7!important;
   }
 }
 
 .general-snackbar {
   --mdc-snackbar-container-color: #FF9222;
   .mat-mdc-button{
-    color: white!important;
+    color: #F5F3F7!important;
   };
 }
 

@@ -29,8 +29,8 @@ export class AuthService {
       map((response) => {
         localStorage.setItem(this.TOKEN_KEY, JSON.stringify(response));
         this.authState.next(true);
-        this.notificationService.general(
-          'You have been logged out'
+        this.notificationService.success(
+          'You have been logged in'
         );
 
         return response.id;
@@ -47,6 +47,7 @@ export class AuthService {
   }
 
   public isLogged(): boolean {
+
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 

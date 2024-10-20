@@ -9,17 +9,18 @@ import { Observable } from 'rxjs';
 })
 export class UserAvatarComponent implements OnInit {
   @Input() user!: Observable<User | null>;
-  public initials!: string
-
+  public initials!: string;
+  public userImageURL?: string;
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.user);
-
     this.user.subscribe((userInterface) => {
       if (userInterface) {
         const user = User.create(userInterface);
         this.initials = user.getInitials();
+        if (user.image) {
+          this.userImageURL = user.getAvatarURL()!;
+        }
       }
     });
   }

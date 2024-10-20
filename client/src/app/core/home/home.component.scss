@@ -40,7 +40,7 @@
       flex-direction: column;
       gap: 24px;
       padding: 32px;
-      color: white;
+      color: $White;
 
       span {
         color: $Primary_theme;
@@ -94,7 +94,7 @@
     display: grid;
     grid-template: "featLibrary featRatings featClubs featFriends featAchievements";
     grid-template-columns: auto;
-    color: white;
+    color: $White;
 
     .home__features__card {
       display: flex;

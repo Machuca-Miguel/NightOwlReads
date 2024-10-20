@@ -8,7 +8,7 @@
   width: 100%;
   position: fixed;
   z-index: 1;
-  color: white;
+  color: $White;
   h1 {
     font-size: 32px;
     .accentText {
@@ -58,7 +58,7 @@
       .dropdown-button {
         background-color: transparent;
         border: none;
-        color: white;
+        color: $White;
         font-size: 20px;
         @include flex-center;
         cursor: pointer;

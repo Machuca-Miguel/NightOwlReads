@@ -7,10 +7,10 @@
   height: 100%;
   max-width: 100vw;
   padding: calc(6vh + 50px) 4vw 6vh 4vw;
+  background-color: $Secondary_bg_grey;
   display: grid;
   grid-template: "sidenav main";
   grid-template-columns: calc(15% - 32px) 85%;
-  background-color: $Secondary_bg_grey;
   gap: 32px;
 
 
@@ -63,7 +63,7 @@
           font-size: 12px;
 
           font-weight: 300;
-          color: $Spacer_light;
+          color: $Secondary_white;
           margin: 0px;
         }
       }

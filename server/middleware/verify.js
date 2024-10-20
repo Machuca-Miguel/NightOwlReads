@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const verify = (req, res, next) => {
   const auth = req.headers.authorization;
   if (!auth) {
-    return res.status(401).json("NO ESTAS AUTORIZADO A ENTRAR!!!!!");
+    return res.status(401).json("NO ESTAS AUTORIZADO A ENTRAR!");
   }
 
 //   Bearer token

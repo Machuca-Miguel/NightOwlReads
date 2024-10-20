@@ -7,10 +7,6 @@ class userControllers {
 
   getUser = async (req, res) => {
     let id = req.params.user_id;
-
-    console.log(id);
-    
-
     let sqlUser = `SELECT * FROM users WHERE id = ${id}`;
 
     const { query } = connection();

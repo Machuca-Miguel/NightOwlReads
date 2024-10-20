@@ -1,0 +1,6 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.search-bar{
+  @include form-search;
+}

@@ -11,6 +11,5 @@ export class AchievementCardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    console.log(this.achievement);
   }
 }

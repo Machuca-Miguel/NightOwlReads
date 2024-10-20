@@ -1,6 +1,6 @@
 <div class="avatar-container">
 
-      <div *ngIf="(user | async)?.image; else intialsTemplate" class="avatar">
+      <div *ngIf="userImageURL; else intialsTemplate" class="avatar">
 
         <img src="" alt="avatar image" class="avatarImage" />
       </div>

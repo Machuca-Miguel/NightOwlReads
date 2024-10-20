@@ -1,11 +1,11 @@
-<section class="user-profile">
+<section *ngIf="user" class="user-profile">
   <app-side-nav></app-side-nav>
   <article class="main-content">
     <div class="header">
     </div>
     <div class="user-info">
      <div class="user-info__img-wrapper">
-       <img src="{{ user.image ? user.image : 'assets/images/appImages/OwlLogo.png' }}" ngClass="{{ user.image ? 'user-image' : 'default-image' }}" alt="User image">
+       <img src="{{ user.image ? user.getAvatarURL() : 'assets/images/appImages/OwlLogo.png' }}" ngClass="{{ user.image ? 'user-image' : 'default-image' }}" alt="User image">
 
      </div>
       <div class="user-info__details">
@@ -18,7 +18,6 @@
         </ng-template>
         </div>
     </div>
-
     <router-outlet></router-outlet>
   </article>
 </section>

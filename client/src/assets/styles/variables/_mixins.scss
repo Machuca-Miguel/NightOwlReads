@@ -121,7 +121,7 @@
   label {
     padding-left: 12px;
     font-size: small;
-    color: $Spacer_reg;
+    color: $Tertiary_white;
     font-weight: 200;
   }
 
@@ -129,14 +129,14 @@
   input[type="password"] {
     width: 100%;
     outline: none;
-    background-color: $Spacer_light;
+    background-color: $Secondary_white;
     border: 1px solid $Primary_bg_grey;
     padding-left: 12px;
     font-size: 12px;
     transition: background-color 0.3s;
 
     &:focus {
-      background-color: $Spacer_reg;
+      background-color: $Tertiary_white;
     }
   }
 }
@@ -144,7 +144,7 @@
 @mixin form-search {
   border-radius: 12px;
   border: 1px solid $Primary_bg_grey;
-  background-color: $Spacer_light;
+  background-color: $Secondary_white;
   overflow: hidden;
   display: flex;
   height: 40px;
@@ -158,7 +158,7 @@
     transition: background-color 0.3s;
 
     &:focus {
-      background-color: $Spacer_reg;
+      background-color: $Tertiary_white;
     }
   }
 

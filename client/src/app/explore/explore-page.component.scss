@@ -1,0 +1,11 @@
+@import "../../assets/styles/variables/variables";
+@import "../../assets/styles/variables/mixins";
+
+.explore-page{
+  margin: 0;
+  height: 100%;
+  max-width: 100vw;
+  padding: calc(6vh + 50px) 4vw 6vh 4vw;
+  background-color: $Secondary_bg_grey;
+
+}

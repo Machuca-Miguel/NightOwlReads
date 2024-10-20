@@ -10,34 +10,33 @@
       <div class="navLinks">
         <button class="navLink" routerLink="/">Home</button>
         <button class="navLink" routerLink="/about">About</button>
-        <button mat-button class="navLink" routerLink="/search">
+        <a class="navLink" (click)="navigateTo('explore/search')">
           Looking for a book?
-        </button>
+        </a>
       </div>
       <div class="signActions">
         <button class="btn-flat" (click)="openAuthModal()">Sign In</button>
         <button class="btn" (click)="openRegisterModal()">Sign Up</button>
       </div>
     </ng-container>
-
     <ng-template #loggedUser>
       <div class="navLinks">
-        <button class="navLink" routerLink="/">My profile</button>
-        <button class="navLink" routerLink="/about">My bookshelves</button>
-        <button mat-button class="navLink" routerLink="/search">
+        <a class="navLink" (click)="navigateTo( 'user/profile')" routerLink=>My profile</a>
+        <a class="navLink" (click)="navigateTo( 'user/bookshelves')" >My bookshelves</a>
+        <a class="navLink" (click)="navigateTo('explore/search')">
           Looking for a book?
-        </button>
+        </a>
       </div>
       <div class="dropdown">
         <button class="dropdown-button" [matMenuTriggerFor]="menu">
           <app-user-avatar *ngIf="user" [user]="user"></app-user-avatar>
         </button>
-        <mat-menu  class="dropdown-menu"  #menu="matMenu">
-          <button mat-menu-item (click)="logout()" >
+        <mat-menu class="dropdown-menu" #menu="matMenu">
+          <button mat-menu-item (click)="logout()">
             <span>Logout</span>
             <mat-icon>logout</mat-icon>
           </button>
-          <button mat-menu-item >
+          <button mat-menu-item>
             <span>Check voice mail</span>
             <mat-icon>voicemail</mat-icon>
           </button>

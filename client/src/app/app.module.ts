@@ -11,11 +11,10 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { AchievementsModule } from './achievements/achievements.module';
+import { ExploreModule } from './explore/explore.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -24,11 +23,12 @@ import { AchievementsModule } from './achievements/achievements.module';
     HttpClientModule,
     CoreModule,
     UserModule,
-    RouterModule.forRoot([], { enableTracing: true }), // Enable tracing
-
-    AuthModule, AchievementsModule,
+    RouterModule,
+    AuthModule,
+    AchievementsModule,
+    ExploreModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

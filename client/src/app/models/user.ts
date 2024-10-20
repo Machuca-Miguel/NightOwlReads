@@ -83,4 +83,8 @@ export class User
   public isSuperUser(): boolean {
     return this.type === UserType.SUPER_USER;
   }
+
+  public getAvatarURL(): string | null {
+    return this.image
+  }
 }
