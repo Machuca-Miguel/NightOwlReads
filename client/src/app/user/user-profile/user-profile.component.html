@@ -1,4 +1,4 @@
-<section class="user-details">
+<section *ngIf="user" class="user-details">
   <div class="main">
     <div class="title">
       <img
@@ -21,7 +21,7 @@
           <mat-icon class="icon" fontSet="material-icons-outlined"
             >spatial_audio_off</mat-icon
           >
-         {{ user.alias }}
+          {{ user.alias }}
         </div>
 
         <div class="detail-item" *ngIf="user.email">
@@ -52,21 +52,24 @@
         </div>
       </div>
     </div>
-<div class="achievements">
+    <div class="achievements">
+      <div class="title">
+        <mat-icon class="icon" fontSet="material-icons-outlined"
+          >emoji_events</mat-icon
+        >
+        <span>My achievements</span>
+      </div>
 
-  <div class="title">
-    <mat-icon class="icon" fontSet="material-icons-outlined">emoji_events</mat-icon>
-    <span>My achievements</span>
-  </div>
-
-  <mat-tab-group  class="achievements-container">
-    <mat-tab *ngFor="let achievement of achievements">
-      <ng-template mat-tab-label>
-        <app-achievement-card [achievement]="achievement"></app-achievement-card>
-      </ng-template>
-    </mat-tab>
-  </mat-tab-group>
-</div>
+      <mat-tab-group class="achievements-container">
+        <mat-tab *ngFor="let achievement of achievements">
+          <ng-template mat-tab-label>
+            <app-achievement-card
+              [achievement]="achievement"
+            ></app-achievement-card>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
   </div>
   <div class="side">
     <div class="title">

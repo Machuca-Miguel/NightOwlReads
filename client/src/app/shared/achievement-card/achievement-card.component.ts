@@ -10,6 +10,25 @@ export class AchievementCardComponent implements OnInit {
   @Input() achievement!: Achievement;
   constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+  public setAchievementStyle(): string {
+    let className: string = '';
+
+    switch (this.achievement.category) {
+      case AchievementCategory.BRONZE:
+        className = 'bronze';
+        break;
+      case AchievementCategory.SILVER:
+        className = 'silver';
+        break;
+      case AchievementCategory.GOLD:
+        className = 'gold';
+        break;
+    }
+    if (this.achievement.achievedAt !== null) {
+      className += ' achieved';
+    }
+
+    return className;
   }
 }

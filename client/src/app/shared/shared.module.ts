@@ -44,6 +44,8 @@ import { UserAvatarComponent } from './user-avatar/user-avatar.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { AchievementCardComponent } from './achievement-card/achievement-card.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { BookCardComponent } from './book-card/book-card.component';
+import { BookListItemComponent } from './book-list-item/book-list-item.component';
 
 const modules = [
   MatToolbarModule,
@@ -82,6 +84,8 @@ const modules = [
     SideNavComponent,
     AchievementCardComponent,
     SearchBarComponent,
+    BookCardComponent,
+    BookListItemComponent,
   ],
   imports: [CommonModule, modules, FormsModule],
   exports: [
@@ -93,6 +97,8 @@ const modules = [
     CommonModule,
     modules,
     SearchBarComponent,
+    BookCardComponent,
+    BookListItemComponent,
   ],
 })
 export class SharedModule {}

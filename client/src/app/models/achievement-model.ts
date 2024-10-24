@@ -1,21 +1,23 @@
 import { AchievementCategory } from '../common/enums/achievement-category';
-import { IdInterface } from './base-model';
+import { BaseModelIdName, IdInterface } from './base-model';
 
 export interface AchievementInterface extends IdInterface  {
   name: string;
   category: AchievementCategory;
   description: string;
-  achievedAt: Date;
+  achievedAt?: Date;
 }
 
-export class Achievement implements AchievementInterface {
-  id!: string;
-  name: string;
+export class Achievement extends BaseModelIdName<AchievementInterface> implements AchievementInterface {
+  override id!: string;
+  override name!: string;
   category: AchievementCategory;
   description: string;
-  achievedAt: Date;
+  achievedAt?: Date;
 
   constructor(achievement: AchievementInterface) {
+    super(achievement);
+
     this.id = achievement.id!;
     this.name = achievement.name;
     this.category = achievement.category;
@@ -24,6 +26,12 @@ export class Achievement implements AchievementInterface {
   }
 
   public static create(params: AchievementInterface): Achievement {
-    return new Achievement(params);
+    const achievement = new Achievement(params);
+    achievement.populate(params);
+    return achievement;
+  }
+  public override populate(params: Partial<AchievementInterface>): this {
+    super.populate(params);
+    return this;
   }
 }

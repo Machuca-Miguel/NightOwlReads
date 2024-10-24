@@ -12,6 +12,8 @@
   box-shadow: 0 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: $White;
   align-items: center;
+  opacity: 0.5;
+  cursor: default;
 
   .icon-wrapper {
     display: grid;
@@ -25,6 +27,16 @@
       margin-top: 6px;
     }
   }
+
+  &.achieved {
+    opacity: 1;
+
+    &:hover {
+      filter: brightness(1.1);
+      cursor: pointer;
+    }
+  }
+
   &.gold {
     border: 1px solid $Achievement_gold;
     .icon {

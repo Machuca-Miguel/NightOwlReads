@@ -4,7 +4,6 @@ import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { BaseApiService } from './common/base-api.service';
 import { Achievement } from 'src/app/models/achievement-model';
-import { IdInterface } from 'src/app/models/base-model';
 
 @Injectable({
   providedIn: 'root',
@@ -16,11 +15,12 @@ export class AchievementApiService extends BaseApiService {
     super( http );
   }
 
-  getAchievementsByUserId(userId: string): Observable<Achievement[]> {
+  getAchievements(userId: string): Observable<Achievement[]> {
     return this.get<Achievement[]>(`${this.apiUrl}/user/${userId}`).pipe(
       catchError(this.handleError<Achievement[]>('getAchievementsByUserId', []))
     );
   }
+
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

@@ -20,16 +20,13 @@ export class SearchComponent implements OnInit {
     this.searchQuery = query;
     this.googlebooksApi.searchBooks(query).subscribe((data) => {
       console.log(data);
-      console.log(data.items);
 
       this.bookList = data.items.map((book) => {
-        const bookInstance =
-        Book.create(book.volumeInfo);
-        console.log(bookInstance);
-
-        return bookInstance;
+        return Book.createFromGoogleBookResponse(book);
       })
       console.log(this.bookList);
+
+
     });
 
   }

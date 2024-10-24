@@ -11,6 +11,7 @@ export class UserAvatarComponent implements OnInit {
   @Input() user!: Observable<User | null>;
   public initials!: string;
   public userImageURL?: string;
+
   constructor() {}
 
   ngOnInit(): void {

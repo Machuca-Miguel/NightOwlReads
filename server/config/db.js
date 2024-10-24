@@ -17,7 +17,7 @@ const connectDB = () => {
     if (error) {
       console.error("Error connecting to the database:", error.message);
     } else {
-      console.log("Connection to the database successful");
+      console.log("Connection successful");
     }
   });
 

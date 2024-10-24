@@ -5,13 +5,13 @@
     </h2>
     <app-search-bar (search)="handleSearch($event)"> </app-search-bar>
   </div>
-  <div class="search-results">
+  <div class="search-results" *ngIf="bookList.length > 0">
     <h5 class="placeholder">
       SEARCH RESULTS FOR
       <span>
         {{ searchQuery }}
       </span>
     </h5>
-    <app-book-list> </app-book-list>
+    <app-book-list [bookList]="bookList" > </app-book-list>
   </div>
 </article>

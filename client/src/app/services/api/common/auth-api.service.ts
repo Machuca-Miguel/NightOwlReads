@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { UserRegistration } from 'src/app/models/user';
 import { BaseApiService } from './base-api.service';
+import { IdInterface } from 'src/app/models/base-model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApiService extends BaseApiService {
@@ -12,13 +13,13 @@ export class AuthApiService extends BaseApiService {
     super(http);
   }
   // Método para registrar un nuevo usuario
-  register(user: UserRegistration): Observable<any> {
+  register(user: UserRegistration): Observable<void> {
     return this.post('auth/register', user);
   }
 
   // Método para iniciar sesión
-  login(credentials: { email: string, password: string }): Observable<any> {
-    return this.post('auth/login', credentials);
+  login( user : UserRegistration): Observable<IdInterface> {
+    return this.post('auth/login', user);
   }
 
 }

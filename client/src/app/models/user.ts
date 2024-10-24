@@ -6,7 +6,7 @@ export interface UserInterface extends IdInterface {
   name: string | null;
   lastName: string | null;
   alias: string | null;
-  email: string | null;
+  email: string;
   phone: string | null;
   type: UserType | null;
   image: string | null;
@@ -17,7 +17,7 @@ export interface UserInterface extends IdInterface {
 
 export interface UserRegistration {
   email : string,
-  password: string,
+  hash: string,
 }
 
 export class User
@@ -29,7 +29,7 @@ export class User
     user.populate(params);
     return user;
   }
-
+  public override id!: string;
   public name: string | null = null;
   public lastName: string | null = null;
   public alias: string | null = null;
@@ -41,11 +41,29 @@ export class User
   public city: string | null = null;
   public socialMedia: string[] | null = null;
 
+  constructor(user?: Partial<UserInterface>) {
+    super(user);
+    if (user) {
+      this.id = user.id!;
+      this.name = user.name || null;
+      this.lastName = user.lastName || null;
+      this.alias = user.alias || null;
+      this.email = user.email!;
+      this.phone = user.phone || null;
+      this.type = user.type || null;
+      this.image = user.image || null;
+      this.country = user.country || null;
+      this.city = user.city || null;
+      this.socialMedia = user.socialMedia || null;
+    }
+  }
+
+
   public override populate(params: Partial<UserInterface>): this {
     super.populate(params);
-
     return this;
   }
+
 
   public fullName(): string {
     const parts: string[] = [];

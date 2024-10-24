@@ -65,17 +65,14 @@
         ::ng-deep .mat-mdc-tab:not(.mdc-tab--stacked) {
           height: 100%;
 
-          &:hover {
-            background-color: transparent !important;
-            .achievement-card {
-              background-color: $Secondary_bg_grey;
-            }
-          }
+
         }
+
       }
 
-      ::ng-deep .mdc-tab{
-padding: 0 8px      }
+      ::ng-deep .mdc-tab {
+        padding: 0 8px;
+      }
 
       ::ng-deep .mat-mdc-tab-group,
       .mat-mdc-tab-nav-bar {
@@ -92,13 +89,12 @@ padding: 0 8px      }
         --mat-tab-header-active-hover-label-text-color: $Primary_theme;
         --mat-tab-header-active-focus-indicator-color: $Primary_theme;
         --mat-tab-header-active-hover-indicator-color: $Primary_theme;
-
       }
 
-      ::ng-deep .mat-mdc-tab-header{
+      ::ng-deep .mat-mdc-tab-header {
         --mdc-tab-indicator-active-indicator-height: 0px;
       }
-      ::ng-deep .mat-mdc-tab-header-pagination-chevron{
+      ::ng-deep .mat-mdc-tab-header-pagination-chevron {
         border-color: $Primary_theme;
       }
     }

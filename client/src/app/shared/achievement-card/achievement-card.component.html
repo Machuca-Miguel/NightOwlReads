@@ -1,5 +1,5 @@
 
-  <div class="achievement-card" [ngClass]="this.achievement!.category" >
+  <div class="achievement-card" [ngClass]="setAchievementStyle()" >
     <div class="icon-wrapper"><mat-icon class="icon"  fontSet="material-icons-outlined">military_tech</mat-icon>
     </div>
     <span class="achievement-name">{{ this.achievement!.name }}</span>

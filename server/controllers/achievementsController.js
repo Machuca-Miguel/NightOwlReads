@@ -1,9 +1,9 @@
 import connection from "../config/db.js";
 
 class achievementsController {
-       //------------------------------------------------------
-    //1.-Get all achievements
-    //http://localhost:4000/api/achievements/
+  //------------------------------------------------------
+  //1.-Get all achievements
+  //http://localhost:4000/api/achievements/
   getAllAchievements = async (req, res) => {
     const { query } = connection();
     const sqlAllAchievements = `SELECT * FROM achievements`;
@@ -16,13 +16,13 @@ class achievementsController {
     }
   };
 
-    //------------------------------------------------------
-    //2.-Get achievements by user ID
-    
+  //------------------------------------------------------
+  //2.-Get achievements by user ID
+
   getAchievementsByUserId = async (req, res) => {
     const user_id = req.params.user_id;
     const { query } = connection();
-    const sqlUserAchievements = `SELECT * FROM user_achievements WHERE user_id = ${user_id}`;
+    const sqlUserAchievements = `SELECT a.id, a.name, a.category, a.description, ua.achieved_at AS achievedAt FROM achievements a LEFT JOIN user_achievements ua ON a.id = ua.achievement_id AND ua.user_id = ${user_id}`;
 
     try {
       const userAchievements = await query(sqlUserAchievements);

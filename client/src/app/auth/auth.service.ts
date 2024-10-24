@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { AuthApiService } from '../services/api/common/auth-api.service';
 import { User, UserRegistration } from 'src/app/models/user';
 import { NotificationService } from '../services/notifications/notification.service';
+import { IdInterface } from '../models/base-model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,19 +22,14 @@ export class AuthService {
     return this.authApiService.register(user);
   }
 
-  public login(credentials: {
-    email: string;
-    password: string;
-  }): Observable<User> {
-    return this.authApiService.login(credentials).pipe(
+  public login(user : UserRegistration): Observable<IdInterface> {
+
+    return this.authApiService.login(user).pipe(
       map((response) => {
         localStorage.setItem(this.TOKEN_KEY, JSON.stringify(response));
         this.authState.next(true);
-        this.notificationService.success(
-          'You have been logged in'
-        );
-
-        return response.id;
+        this.notificationService.success('You have been logged in');
+        return response;
       })
     );
   }
@@ -41,13 +37,10 @@ export class AuthService {
   public logout() {
     localStorage.removeItem(this.TOKEN_KEY);
     this.authState.next(false);
-    this.notificationService.success(
-      'You have been logged out'
-    );
+    this.notificationService.success('You have been logged out');
   }
 
   public isLogged(): boolean {
-
     return !!localStorage.getItem(this.TOKEN_KEY);
   }
 

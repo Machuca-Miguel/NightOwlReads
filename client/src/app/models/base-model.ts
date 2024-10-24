@@ -1,4 +1,10 @@
 export abstract class BaseModel<Interface = {}> {
+  constructor(init?: Partial<Interface>) {
+    if (init) {
+      this.populate(init);
+    }
+  }
+
   public static normalize(str: string): string {
     return str
       .normalize('NFD')
@@ -32,6 +38,13 @@ export abstract class BaseModel<Interface = {}> {
 export abstract class BaseModelId<Interface = {}, IdType = string> extends BaseModel<Interface> {
   public id: IdType | null = null;
 
+  constructor(init?: Partial<Interface>) {
+    super(init);
+    if (init && 'id' in init) {
+      this.id = init.id as IdType;
+    }
+  }
+
   public is<T extends BaseModelId>(this: T, other: T | null | undefined): boolean {
     if (!other || other.id === null) {
       return false;
@@ -39,7 +52,7 @@ export abstract class BaseModelId<Interface = {}, IdType = string> extends BaseM
     return this.id === other.id;
   }
 
-  public static arrayToObject<T extends BaseModelId<T>>(list: T[]): Record<string, T> {
+  public static arrayToObject<T extends BaseModelId>(list: T[]): Record<string, T> {
     const object: Record<string, T> = {};
     for (const item of list) {
       if (item.id != null) {
@@ -82,6 +95,13 @@ export abstract class BaseModelId<Interface = {}, IdType = string> extends BaseM
 export abstract class BaseModelIdName<Interface = {}, IdType = string> extends BaseModelId<Interface, IdType> {
   public name: string | null = null;
 
+  constructor(init?: Partial<Interface>) {
+    super(init);
+    if (init && 'name' in init) {
+      this.name = init.name as string;
+    }
+  }
+
   public static sort(array: BaseModelIdName[]): void {
     array.sort((aModel, bModel) => aModel.compare(bModel));
   }
@@ -100,25 +120,5 @@ export abstract class BaseModelIdName<Interface = {}, IdType = string> extends B
 }
 
 export interface IdInterface {
-  id: string | null;
-}
-
-export class Arrays {
-  private constructor() {}
-
-  public static remove<T>(list: T[], item: T): boolean {
-    const index = list.indexOf(item);
-    if (index !== -1) {
-      list.splice(index, 1);
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  public static toggle<T>(list: T[], item: T): void {
-    if (!this.remove(list, item)) {
-      list.push(item);
-    }
-  }
+  id: string;
 }
