@@ -4,7 +4,7 @@
 .search-container {
   @include flex-column;
   gap: 12px;
-  color: $White;
+  color: $Black;
 
   .header {
     border-radius: 8px;
@@ -34,8 +34,9 @@
 
     .placeholder{
       font-size: 1em;
+      font-weight: normal;
+      border-bottom: 1px solid $Secondary_theme;
       .accent{
-
         color: $Secondary_theme;
       }
     }

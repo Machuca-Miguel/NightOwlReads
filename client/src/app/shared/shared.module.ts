@@ -46,6 +46,7 @@ import { AchievementCardComponent } from './achievement-card/achievement-card.co
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
+import { RatingComponent } from './rating/rating.component';
 
 const modules = [
   MatToolbarModule,
@@ -86,6 +87,7 @@ const modules = [
     SearchBarComponent,
     BookCardComponent,
     BookListItemComponent,
+    RatingComponent,
   ],
   imports: [CommonModule, modules, FormsModule],
   exports: [

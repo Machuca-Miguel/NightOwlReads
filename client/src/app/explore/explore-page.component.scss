@@ -1,11 +1,17 @@
 @import "../../assets/styles/variables/variables";
 @import "../../assets/styles/variables/mixins";
 
-.explore-page{
+.explore-page {
+  @include flex-column;
+  align-items: center;
   margin: 0;
   height: 100%;
   max-width: 100vw;
   padding: calc(6vh + 50px) 4vw 6vh 4vw;
   background-color: $Secondary_bg_grey;
 
+  .content {
+    max-width: 1440px;
+    width: 100%;
+  }
 }

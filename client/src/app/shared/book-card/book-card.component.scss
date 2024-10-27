@@ -1,0 +1,66 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.book-card {
+  @include flex-column;
+  width: 200px;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 1px #2b303550;
+  .cover {
+    img {
+      width: 100%;
+      aspect-ratio: 2/3;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+  }
+  .content {
+    padding: 4px 8px;
+@include flex-column;
+    .title {
+      font-size: 1rem;
+      height: 2.3rem;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-clamp: 2;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      color: $White;
+      margin: 0;
+      margin-bottom: 4px;
+
+    }
+    .author {
+      margin: 0;
+      margin-top: 4px;
+      height: 1rem;
+      font-size: 0.8rem;
+      color: $Tertiary_white;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-clamp: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+    .categories {
+      margin: 0;
+      margin-bottom: 4px;
+      font-size: 0.7rem;
+      height: 1rem;
+      color: $Tertiary_white;
+      text-overflow: ellipsis;
+      line-clamp: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+
+      .hashtag {
+        font-size: 0.8rem;
+      }
+    }
+  }
+}

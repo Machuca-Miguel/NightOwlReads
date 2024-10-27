@@ -8,8 +8,8 @@
   <div class="search-results" *ngIf="bookList.length > 0">
     <h5 class="placeholder">
       SEARCH RESULTS FOR
-      <span>
-        {{ searchQuery }}
+      <span class="accent">
+        "{{ searchQuery }}"
       </span>
     </h5>
     <app-book-list [bookList]="bookList" > </app-book-list>

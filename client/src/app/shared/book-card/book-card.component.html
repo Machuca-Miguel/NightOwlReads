@@ -1,12 +1,21 @@
 <div class="book-card" *ngIf="book">
-    <div class="book-card-image">
-      <!-- <img [src]="book.cover" alt="book cover" /> -->
-    </div>
-    <div class="book-card-content">
-      <h3 class="book-card-title">{{ book.title }}</h3>
-      <p class="book-card-author">{{ book.authors }}</p>
-      <div class="book-card-footer">
-
-      </div>
+  <div class="cover">
+    <img [src]="book.coverURL" alt="book cover" />
+  </div>
+  <div class="content">
+    <h3 class="title">{{ book.title }}</h3>
+    <p class="author">{{ book.authors }} - {{ book.getpublishedDate()}} </p>
+    <p class="categories">
+      <span
+        *ngIf="book.categories && book.categories.length > 0"
+        class="hashtag"
+        >#</span
+      >{{ book.getcategories() }}
+    </p>
+    <app-rating
+      [rating]="book.rating!"
+      [totalRatings]="book.totalRatings!"
+    ></app-rating>
+    <div class="footer"></div>
   </div>
 </div>

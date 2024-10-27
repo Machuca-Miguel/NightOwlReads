@@ -52,8 +52,9 @@ export interface VolumeInfo extends BookResponse {
   previewLink: string;
   infoLink: string;
   canonicalVolumeLink: string;
+  averageRating: number;
+  ratingsCount: number;
 }
-
 
 export interface BookInterface extends IdInterface {
   title?: string;
@@ -64,6 +65,8 @@ export interface BookInterface extends IdInterface {
   pageCount?: number;
   categories?: string[];
   coverURL?: string;
+  rating?: number;
+  totalRatings?: number;
 }
 
 export class Book extends BaseModelId<BookInterface> implements BookInterface {
@@ -76,6 +79,8 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
   public pageCount?: number;
   public categories?: string[];
   public coverURL?: string;
+  public rating?: number;
+  public totalRatings?: number;
 
   constructor(book?: Partial<BookInterface>) {
     super(book);
@@ -108,7 +113,12 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       description: googleBook.volumeInfo.description,
       pageCount: googleBook.volumeInfo.pageCount,
       categories: googleBook.volumeInfo.categories,
-      coverURL: googleBook.volumeInfo.imageLinks?.thumbnail ? googleBook.volumeInfo.imageLinks.thumbnail : 'assets/images/default-book-cover.png',
+      coverURL: googleBook.volumeInfo.imageLinks?.thumbnail
+        ? googleBook.volumeInfo.imageLinks.thumbnail ||
+          googleBook.volumeInfo.imageLinks.smallThumbnail
+        : 'assets/images/appImages/book-placeholder.svg',
+      rating: googleBook.volumeInfo.averageRating,
+      totalRatings: googleBook.volumeInfo.ratingsCount,
     };
     const book = new Book(bookParams);
     book.populate(bookParams);
@@ -139,6 +149,14 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
     }
     const date = new Date(this.publishedDate);
     return date.toLocaleDateString();
+  }
+
+  public getcategories(): string | null {
+    return this.categories ? this.categories.join(', ') : null;
+  }
+
+  public getpublishedDate(): string | null {
+    return this.publishedDate?.split('-')[0] || null;
   }
 
   // public getCoverURL(): string {
