@@ -12,8 +12,8 @@ import usersRouter from "./routes/users.js";
 import booksRouter from "./routes/books.js";
 import authRouter from "./routes/auth.js";
 import achievementsRouter from "./routes/achievements.js";
+import apiKeysRouter from "./routes/apiKeys.js"; 
 
-// Obtener el directorio del archivo actual
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -35,6 +35,7 @@ app.use('/api/user', usersRouter);
 app.use('/api/books', booksRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/achievements', achievementsRouter);
+app.use('/api/keys', apiKeysRouter);
 
 
 export default app;

@@ -1,7 +1,12 @@
 .book-list-container{
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+  grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
   grid-gap: 12px;
+  gap : 12px;
   justify-content: center;
+
+  .book-card{
+    width: 100%;
+  }
 }

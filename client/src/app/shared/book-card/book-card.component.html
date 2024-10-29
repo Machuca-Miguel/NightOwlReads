@@ -3,19 +3,20 @@
     <img [src]="book.coverURL" alt="book cover" />
   </div>
   <div class="content">
-    <h3 class="title">{{ book.title }}</h3>
-    <p class="author">{{ book.authors }} - {{ book.getpublishedDate()}} </p>
-    <p class="categories">
+    <span class="title">{{ book.title }}</span>
+    <span class="author">{{ book.authors }}</span>
+    <span class="categories">
       <span
-        *ngIf="book.categories && book.categories.length > 0"
-        class="hashtag"
-        >#</span
+      *ngIf="book.categories && book.categories.length > 0"
+      class="hashtag"
+      >#</span
       >{{ book.getcategories() }}
-    </p>
+    </span>
+    <span class="publish-date">{{book.publisher}} - {{ book.getpublishedDate()}} </span>
     <app-rating
       [rating]="book.rating!"
       [totalRatings]="book.totalRatings!"
     ></app-rating>
-    <div class="footer"></div>
+
   </div>
 </div>

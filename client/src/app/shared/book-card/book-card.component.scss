@@ -2,43 +2,43 @@
 @import "../../../assets/styles/variables/mixins";
 
 .book-card {
-  @include flex-column;
-  width: 200px;
-  padding: 4px;
+  @include flex;
+  height: 180PX;
+  gap: 8px;
+  padding: 12px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 1px #2b303550;
   .cover {
+    height: 100%;
     img {
-      width: 100%;
+      height: 100%;
       aspect-ratio: 2/3;
-      border-radius: 4px;
+      border-radius: 2px;
       object-fit: cover;
     }
   }
   .content {
+    @include flex-column;
+    gap: 8px;
     padding: 4px 8px;
-@include flex-column;
     .title {
-      font-size: 1rem;
-      height: 2.3rem;
+      font-size: 1.2rem;
       font-weight: 500;
+      margin: 0;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-clamp: 2;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
+      line-clamp: 2;
       color: $White;
-      margin: 0;
       margin-bottom: 4px;
-
     }
     .author {
       margin: 0;
-      margin-top: 4px;
-      height: 1rem;
-      font-size: 0.8rem;
-      color: $Tertiary_white;
+      margin-bottom: -4px;
+      font-size: 1rem;
+      color: $Disabled;
       overflow: hidden;
       text-overflow: ellipsis;
       line-clamp: 1;
@@ -46,12 +46,11 @@
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
     }
-    .categories {
+
+    .categories, .publish-date  {
       margin: 0;
-      margin-bottom: 4px;
-      font-size: 0.7rem;
-      height: 1rem;
-      color: $Tertiary_white;
+      font-size: 0.8rem;
+      color: $Disabled;
       text-overflow: ellipsis;
       line-clamp: 1;
       display: -webkit-box;

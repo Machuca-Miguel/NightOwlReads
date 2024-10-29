@@ -67,6 +67,8 @@ export interface BookInterface extends IdInterface {
   coverURL?: string;
   rating?: number;
   totalRatings?: number;
+  ISBN_10?: string;
+  ISBN_13?: string;
 }
 
 export class Book extends BaseModelId<BookInterface> implements BookInterface {
@@ -81,6 +83,8 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
   public coverURL?: string;
   public rating?: number;
   public totalRatings?: number;
+  public ISBN_10?: string;
+  public ISBN_13?: string;
 
   constructor(book?: Partial<BookInterface>) {
     super(book);
@@ -114,11 +118,13 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       pageCount: googleBook.volumeInfo.pageCount,
       categories: googleBook.volumeInfo.categories,
       coverURL: googleBook.volumeInfo.imageLinks?.thumbnail
-        ? googleBook.volumeInfo.imageLinks.thumbnail ||
-          googleBook.volumeInfo.imageLinks.smallThumbnail
-        : 'assets/images/appImages/book-placeholder.svg',
+      ? googleBook.volumeInfo.imageLinks.thumbnail ||
+        googleBook.volumeInfo.imageLinks.smallThumbnail
+      : 'assets/images/appImages/book-placeholder.svg',
       rating: googleBook.volumeInfo.averageRating,
       totalRatings: googleBook.volumeInfo.ratingsCount,
+      ISBN_10: googleBook.volumeInfo.industryIdentifiers?.find(identifier => identifier.type === 'ISBN_10')?.identifier,
+      ISBN_13: googleBook.volumeInfo.industryIdentifiers?.find(identifier => identifier.type === 'ISBN_13')?.identifier,
     };
     const book = new Book(bookParams);
     book.populate(bookParams);
@@ -143,13 +149,7 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       : this.description;
   }
 
-  public getFormattedPublishedDate(): string {
-    if (!this.publishedDate) {
-      return 'Unknown Date';
-    }
-    const date = new Date(this.publishedDate);
-    return date.toLocaleDateString();
-  }
+
 
   public getcategories(): string | null {
     return this.categories ? this.categories.join(', ') : null;
