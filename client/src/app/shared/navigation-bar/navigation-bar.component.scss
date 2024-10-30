@@ -66,3 +66,17 @@
     }
   }
 }
+
+::ng-deep .mat-mdc-menu-panel {
+  --mat-menu-container-color: #2b3035;
+  .mat-mdc-menu-content {
+    padding: 4px 0;
+  }
+  .mat-mdc-menu-item {
+    min-height: 36px;
+
+    &:hover {
+      background-color: $Tertiary_bg_transparent-grey;
+    }
+  }
+}

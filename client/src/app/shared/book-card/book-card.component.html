@@ -2,21 +2,32 @@
   <div class="cover">
     <img [src]="book.coverURL" alt="book cover" />
   </div>
+  <div class="icon-button">
+    <span mat-button [matMenuTriggerFor]="menu">
+      <mat-icon fontSet="material-icons-round">add</mat-icon>
+    </span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>To read</button>
+      <button mat-menu-item>Reading</button>
+      <button mat-menu-item>Read</button>
+      <button mat-menu-item>Whislist</button>
+    </mat-menu>
+  </div>
   <div class="content">
     <span class="title">{{ book.title }}</span>
     <span class="author">{{ book.authors }}</span>
     <span class="categories">
       <span
-      *ngIf="book.categories && book.categories.length > 0"
-      class="hashtag"
-      >#</span
+        *ngIf="book.categories && book.categories.length > 0"
+        class="hashtag"
+        >#</span
       >{{ book.getcategories() }}
     </span>
-    <span class="publish-date">{{book.publisher}} - {{ book.getpublishedDate()}} </span>
-    <app-rating
-      [rating]="book.rating!"
-      [totalRatings]="book.totalRatings!"
-    ></app-rating>
-
+    <span class="publish">
+      <span *ngIf="book.publisher">{{ book.publisher }}</span>
+      <span *ngIf="book.publisher && book.publishedDate"> - </span>
+      <span *ngIf="book.publishedDate">{{ book.getpublishedDate() }}</span>
+    </span>
+    <app-rating [rating]="book.rating!"></app-rating>
   </div>
 </div>

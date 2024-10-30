@@ -1,13 +1,15 @@
 @import "../../../assets/styles/variables/variables";
 @import "../../../assets/styles/variables/mixins";
 
+
 .book-card {
   @include flex;
-  height: 180PX;
+  height: 180px;
   gap: 8px;
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px 1px #2b303550;
+  position: relative;
   .cover {
     height: 100%;
     img {
@@ -17,11 +19,26 @@
       object-fit: cover;
     }
   }
+  .icon-button {
+    font-size: 20px;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: $Secondary_theme;
+
+    &:hover {
+      color: $Primary_theme;
+    }
+
+
+  }
   .content {
     @include flex-column;
     gap: 8px;
     padding: 4px 8px;
     .title {
+      width: calc(100% - 24px);
       font-size: 1.2rem;
       font-weight: 500;
       margin: 0;
@@ -47,19 +64,40 @@
       -webkit-box-orient: vertical;
     }
 
-    .categories, .publish-date  {
+    app-rating {
+      margin-top: auto;
+    }
+
+    .categories,
+    .publish {
       margin: 0;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       color: $Disabled;
       text-overflow: ellipsis;
       line-clamp: 1;
       display: -webkit-box;
       -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
-
+    }
+    .categories {
+      font-size: 0.8rem;
+      font-style: italic;
       .hashtag {
-        font-size: 0.8rem;
+        font-style: normal;
       }
+    }
+  }
+}
+::ng-deep .mat-mdc-menu-panel {
+  --mat-menu-container-color: #42484F;
+  .mat-mdc-menu-content {
+    padding: 4px 0;
+  }
+  .mat-mdc-menu-item{
+    min-height: 30px;
+
+    &:hover {
+      background-color: $Tertiary_bg_transparent-grey;
     }
   }
 }
