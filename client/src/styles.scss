@@ -1,31 +1,94 @@
 // Custom Theming for Angular Material
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
+@import "./assets/styles/variables/variables";
 
 @include mat.core();
 
 $My-Library-Angular-App-primary: mat.define-palette(mat.$indigo-palette);
-$My-Library-Angular-App-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$My-Library-Angular-App-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
 $My-Library-Angular-App-warn: mat.define-palette(mat.$red-palette);
 
-$My-Library-Angular-App-theme: mat.define-light-theme((
-  color: (
-    primary: $My-Library-Angular-App-primary,
-    accent: $My-Library-Angular-App-accent,
-    warn: $My-Library-Angular-App-warn,
+$My-Library-Angular-App-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $My-Library-Angular-App-primary,
+      accent: $My-Library-Angular-App-accent,
+      warn: $My-Library-Angular-App-warn,
+    ),
   )
-));
+);
 
 @include mat.all-component-themes($My-Library-Angular-App-theme);
 
-html, body {
+html,
+body {
   height: 100%;
 
+  --mat-menu-item-label-text-color: $White;
+  --mat-menu-item-icon-color: $Primary_theme;
 
-  --mat-menu-item-label-text-color: #F5F3F7;
-  --mat-menu-item-icon-color: #FF9222;
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
 
+  *::-webkit-scrollbar-thumb {
+    background-color: $Secondary_theme;
+    border-radius: 4px;
+  }
 
+  *::-webkit-scrollbar-track {
+    background-color: $Tertiary_bg_transparent-grey;
+    border-radius: 4px;
+  }
 
+  .inner-HTML * {
+    font-size: 1rem;
+    font-weight: normal;
+    line-height: 1.2rem;
+    margin: 1.2rem 0;
+  }
+
+  .small-tab-group {
+    padding: 24px;
+    .mat-mdc-tab-group {
+      --mdc-tab-indicator-active-indicator-color: #ffa952;
+      --mat-tab-header-disabled-ripple-color:   transparent;
+      --mat-tab-header-pagination-icon-color:  #D4D2D5 ;
+      --mat-tab-header-inactive-label-text-color:  #D4D2D5;
+      --mat-tab-header-active-label-text-color: #ffa952;
+      --mat-tab-header-active-ripple-color: transparent;
+      --mat-tab-header-inactive-ripple-color: #2B3035;
+      --mat-tab-header-inactive-focus-label-text-color:  #D4D2D5;
+      --mat-tab-header-inactive-hover-label-text-color:   #D4D2D5;
+      --mat-tab-header-active-focus-label-text-color: #ffa952;
+      --mat-tab-header-active-hover-label-text-color: #ffa952;
+      --mat-tab-header-active-focus-indicator-color: #ffa952;
+      --mat-tab-header-active-hover-indicator-color: #ffa952;
+    }
+
+    .mat-mdc-tab-header {
+      width:fit-content;
+      --mdc-secondary-navigation-tab-container-height: 30px;
+      margin-left: auto;
+
+    }
+    
+    .mdc-tab {
+      min-width: fit-content;
+      padding: 0 4px;
+      margin: 0 12px;
+    }
+
+   
+    ::ng-deep .mat-mdc-tab-body {
+      padding: 16px; // Relleno del cuerpo de las pestañas
+    }
+  }
 }
 
 body {
@@ -33,35 +96,35 @@ body {
   font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
 }
 
 hr {
-  border-color: #2B3035;
+  border-color: #2b3035;
   border-style: groove;
 }
 
 .success-snackbar {
-  --mdc-snackbar-container-color: #4caf50;
-  .mat-mdc-button{
-    color:  #F5F3F7!important;
+  --mdc-snackbar-container-color: $Secondary_succes;
+  .mat-mdc-button {
+    color: $White !important;
   }
 }
 
 .error-snackbar {
-  --mdc-snackbar-container-color: #f44336;
-  .mat-mdc-button{
-    color: #F5F3F7!important;
+  --mdc-snackbar-container-color: $Secondary_danger;
+  .mat-mdc-button {
+    color: $White !important;
   }
 }
 
 .general-snackbar {
-  --mdc-snackbar-container-color: #FF9222;
-  .mat-mdc-button{
-    color: #F5F3F7!important;
-  };
+  --mdc-snackbar-container-color: $Primary_theme;
+  .mat-mdc-button {
+    color: $White !important;
+  }
 }
-
-

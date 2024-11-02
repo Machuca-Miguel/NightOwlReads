@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SearchBooksResponse } from 'src/app/models/book-model';
+import { BookResponse, SearchBooksResponse } from 'src/app/models/book-model';
 import { BookDetailsResponse } from '../../models/book-model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class GoogleBooksService {
+export class GoogleBooksApiService {
   private apiUrl = 'https://www.googleapis.com/books/v1/volumes';
 
   constructor(private http: HttpClient) { }
@@ -23,8 +23,8 @@ export class GoogleBooksService {
   }
 
   // Método para obtener detalles de un libro por su ID
-  getBookDetails(bookId: string): Observable<BookDetailsResponse> {
-    return this.get<BookDetailsResponse>(`${this.apiUrl}/${bookId}`);
+  getBookDetails(bookId: string): Observable<BookResponse> {
+    return this.get<BookResponse>(`${this.apiUrl}/${bookId}`);
   }
 
   // Método para obtener libros por autor
@@ -40,5 +40,9 @@ export class GoogleBooksService {
   // Método para obtener libros populares por región
   getPopularBooks(region: string): Observable<SearchBooksResponse> {
     return this.get<SearchBooksResponse>(`${this.apiUrl}/popular?region=${region}`);
+  }
+
+  getBookByPublisher(region: string): Observable<SearchBooksResponse> {
+    return this.get<SearchBooksResponse>(`${this.apiUrl}?q=inpublisher=${region}`);
   }
 }

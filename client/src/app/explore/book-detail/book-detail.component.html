@@ -1,1 +1,36 @@
-<p>book-detail works!</p>
+<section class="book-detail-section" *ngIf="book">
+  <div class="book-header" >
+    <div
+      class="book-cover"
+      [ngStyle]="{ 'background-image': 'url(' + book.coverURL + ')' }"
+    ></div>
+    <img [src]="book.coverURL" alt="book cover" class="cover-img" />
+    <div class="book-info">
+      <div class="book-title">{{ book.title }}</div>
+      <div>
+        <div class="book-author">By: {{ book.getAuthors() }}</div>
+        <div class="book-categories" [matTooltip]="book.getcategories()!">
+          <span
+            *ngIf="book.categories && book.categories.length > 0"
+            class="hashtag"
+            >#</span
+          >{{ book.getcategories() }}
+        </div>
+      </div>
+      <app-rating
+        [rating]="book.rating!"
+        [totalRatings]="book.totalRatings!"
+      ></app-rating>
+      <div *ngIf="book.description" class="book-description" #description  [class.expanded]="isExpanded">
+        <span class="title">Sinopsis</span>
+        <p class="inner-HTML" [innerHTML]="book.description"></p>
+      </div>
+      <button  *ngIf="showButton"  (click)="toggleDescription()" class="show-more-btn">
+        {{ isExpanded ? "Show Less" : "Show More" }}
+      </button>
+    </div>
+  </div>
+  <div class="book-tabs"> 
+    <app-book-tabs [book]="book!" ></app-book-tabs>
+  </div>
+</section>

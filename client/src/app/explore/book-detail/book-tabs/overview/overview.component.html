@@ -1,0 +1,34 @@
+<div class="book-details">
+  <h2>Book details</h2>
+  <hr />
+  <div class="details-list">
+    <div class="detail-item">
+      <span class="label">Author:</span>
+      <span class="value">{{ book.authors }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Genre:</span>
+      <span class="value">{{ book.getcategories() }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Publish date:</span>
+      <span class="value">{{ book.publishedDate | date : "longDate" }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Publisher:</span>
+      <span class="value">{{ book.publisher }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Page count:</span>
+      <span class="value">{{ book.pageCount }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">Language:</span>
+      <span class="value">{{ book.getLanguage() }}</span>
+    </div>
+    <div class="detail-item">
+      <span class="label">ISBN:</span>
+      <span class="value">{{ book.ISBN_10 }}</span>
+    </div>
+  </div>
+</div>

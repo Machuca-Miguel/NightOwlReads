@@ -101,6 +101,7 @@ const modules = [
     SearchBarComponent,
     BookCardComponent,
     BookListItemComponent,
+    RatingComponent,
   ],
 })
 export class SharedModule {}

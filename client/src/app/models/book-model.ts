@@ -1,3 +1,5 @@
+import { LanguageCode, LanguageName } from '../common/enums/language-code';
+import { LanguageService } from '../services/language.service';
 import { BaseModelId, IdInterface } from './base-model';
 
 export interface SearchBooksResponse {
@@ -29,7 +31,7 @@ export interface BookResponse {
   volumeInfo: VolumeInfo;
   saleInfo: any;
   accessInfo: any;
-  searchInfo: any;
+  searchInfo?: any;
 }
 
 export interface VolumeInfo extends BookResponse {
@@ -48,7 +50,7 @@ export interface VolumeInfo extends BookResponse {
   contentVersion: string;
   panelizationSummary: any;
   imageLinks: ImageLinks;
-  language: string;
+  language: LanguageCode;
   previewLink: string;
   infoLink: string;
   canonicalVolumeLink: string;
@@ -69,6 +71,7 @@ export interface BookInterface extends IdInterface {
   totalRatings?: number;
   ISBN_10?: string;
   ISBN_13?: string;
+  language?: string;
 }
 
 export class Book extends BaseModelId<BookInterface> implements BookInterface {
@@ -85,6 +88,7 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
   public totalRatings?: number;
   public ISBN_10?: string;
   public ISBN_13?: string;
+  public language?: LanguageCode;
 
   constructor(book?: Partial<BookInterface>) {
     super(book);
@@ -117,6 +121,7 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       description: googleBook.volumeInfo.description,
       pageCount: googleBook.volumeInfo.pageCount,
       categories: googleBook.volumeInfo.categories,
+      language: googleBook.volumeInfo.language,
       coverURL: googleBook.volumeInfo.imageLinks?.thumbnail
       ? googleBook.volumeInfo.imageLinks.thumbnail ||
         googleBook.volumeInfo.imageLinks.smallThumbnail
@@ -127,6 +132,8 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       ISBN_13: googleBook.volumeInfo.industryIdentifiers?.find(identifier => identifier.type === 'ISBN_13')?.identifier,
     };
     const book = new Book(bookParams);
+    console.log(book);
+    
     book.populate(bookParams);
     return book;
   }
@@ -137,30 +144,20 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
   }
 
   public getAuthors(): string {
-    return this.authors ? this.authors.join(', ') : 'Unknown Author';
+    return this.authors ? this.authors.join(', ') : 'Anonimus';
   }
-
-  public getShortDescription(length: number = 100): string {
-    if (!this.description) {
-      return 'No description available.';
-    }
-    return this.description.length > length
-      ? this.description.substring(0, length) + '...'
-      : this.description;
-  }
-
-
 
   public getcategories(): string | null {
-    return this.categories ? this.categories.join(', ') : null;
+    return this.categories ? this.categories.join(' / ') : null;
   }
 
   public getpublishedDate(): string | null {
     return this.publishedDate?.split('-')[0] || null;
   }
 
-  // public getCoverURL(): string {
-  //   let thumbnail = this.thumbnail;
-  //   return this.thumbnail || 'assets/images/default-thumbnail.png';
-  // }
+  public getLanguage(): LanguageName | void {
+    if (!this.language) return;
+    return LanguageService.getLanguageName(this.language);
+  }
+
 }

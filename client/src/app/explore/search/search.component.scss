@@ -4,7 +4,7 @@
 .search-container {
   @include flex-column;
   gap: 12px;
-  color: $Black;
+  color: $Tertiary_white;
 
   .header {
     border-radius: 8px;
