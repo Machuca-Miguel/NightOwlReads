@@ -23,7 +23,11 @@ export class BookCardComponent {
     button.style.setProperty('--click-y', `${y}px`);
   }
 
-  public navigateTo(): void {
+  public navigateToDetails(): void {
     this.router.navigate([ 'explore/book-detail', this.book.id]);
+  }
+
+  public stopPropagation(event: MouseEvent): void {
+    event.stopPropagation(); // Detener la propagación del evento de clic
   }
 }

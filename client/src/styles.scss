@@ -29,30 +29,39 @@ html,
 body {
   height: 100%;
 
+}
+
+body {
+  margin: 0;
+  font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
   --mat-menu-item-label-text-color: $White;
   --mat-menu-item-icon-color: $Primary_theme;
 
+  .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+    backdrop-filter: blur(0.7px);
+  }
+  
   *::-webkit-scrollbar {
     width: 8px;
   }
-
+  
   *::-webkit-scrollbar-thumb {
     background-color: $Secondary_theme;
     border-radius: 4px;
   }
-
+  
   *::-webkit-scrollbar-track {
     background-color: $Tertiary_bg_transparent-grey;
     border-radius: 4px;
   }
-
+  
   .inner-HTML * {
     font-size: 1rem;
     font-weight: normal;
     line-height: 1.2rem;
     margin: 1.2rem 0;
   }
-
+  
   .small-tab-group {
     padding: 24px;
     .mat-mdc-tab-group {
@@ -70,12 +79,12 @@ body {
       --mat-tab-header-active-focus-indicator-color: #ffa952;
       --mat-tab-header-active-hover-indicator-color: #ffa952;
     }
-
+  
     .mat-mdc-tab-header {
       width:fit-content;
       --mdc-secondary-navigation-tab-container-height: 30px;
       margin-left: auto;
-
+  
     }
     
     .mdc-tab {
@@ -83,17 +92,27 @@ body {
       padding: 0 4px;
       margin: 0 12px;
     }
-
+  
    
     ::ng-deep .mat-mdc-tab-body {
       padding: 16px; // Relleno del cuerpo de las pestañas
     }
   }
-}
 
-body {
-  margin: 0;
-  font-family: "Nunito Sans", Roboto, "Helvetica Neue", sans-serif;
+  .mat-mdc-menu-panel {
+    --mat-menu-container-color: #42484f;
+  
+    .mat-mdc-menu-content {
+      padding: 4px 0;
+    }
+    .mat-mdc-menu-item {
+      min-height: 30px;
+      color: #E5E0EB;
+      &:hover {
+        background-color: $Tertiary_bg_transparent-grey;
+      }
+    }
+  }
 }
 
 *,

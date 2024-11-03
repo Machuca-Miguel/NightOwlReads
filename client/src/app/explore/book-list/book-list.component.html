@@ -1,5 +1,11 @@
-<section class="book-list-container">
+<section class="book-list-cards-container" *ngIf="viewType === 'cards'">
   <ng-container *ngFor="let book of bookList">
-    <app-book-card class="book-card" [book]="book"></app-book-card>
+    <app-book-card class="book-card" [book]="book" viewType="cards"></app-book-card>
+  </ng-container>
+</section>
+
+<section class="book-list-items-container" *ngIf="viewType === 'list'">
+  <ng-container *ngFor="let book of bookList">
+    <app-book-list-item class="book-list-item" [book]="book" viewType="list"></app-book-list-item>
   </ng-container>
 </section>

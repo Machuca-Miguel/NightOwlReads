@@ -1,0 +1,71 @@
+@import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
+
+.book-list-item {
+  height: 100%;
+  display: grid;
+  grid-template-columns: calc(100px) 1fr 150px 1fr;
+  place-items: center;
+  padding: 12px;
+  box-shadow: 0px 0px 10px 1px #2b303550;
+  color: $White;
+  .cover {
+    height: 100px;
+    aspect-ratio: 2/3;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 3%;
+    }
+  }
+
+  .content {
+    height: 100%;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 0;
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      @include line-clamp(2);
+
+    }
+
+    .categories {
+      font-size: 0.9rem;
+      color: $Disabled;
+    }
+
+    .publish {
+      font-size: 0.8rem;
+      color: $Disabled;
+      margin-top: auto;
+    }
+  }
+  .rating-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    span{
+      margin-left: 4px;
+    }
+   
+  }
+
+  .book-actions{
+    margin-left: auto;
+    align-self: start;
+
+    .icon-button{
+      @include btn-flat;
+      color : $Secondary_theme;
+      display: grid;
+      place-items: center;
+      padding: 4px;
+    }
+  }
+}

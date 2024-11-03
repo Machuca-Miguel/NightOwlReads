@@ -1,4 +1,5 @@
 @import "../../../assets/styles/variables/variables";
+@import "../../../assets/styles/variables/mixins";
 
 .book-detail-section {
   display: grid;
@@ -7,14 +8,15 @@
 
   .book-header {
     height: auto;
-    min-height: 500px;
-    max-height: 700px;
+    min-height:400px;
+    max-height: 900px;
     background-color: $Tertiary_bg_grey;
     border-radius: 8px;
     overflow: hidden;
     display: grid;
     grid-template-columns: 20% 80%;
     position: relative;
+    transition: all 0.5s ease;
 
     .book-cover {
       background-position: left center;
@@ -35,6 +37,7 @@
       align-self: center;
     }
     .book-info {
+      height: 100%;
       align-self: center;
       display: flex;
       flex-direction: column;
@@ -68,25 +71,22 @@
 
       .book-description {
         font-size: 1rem;
-        max-height: calc(1.2rem * 12);
+        height: calc(1.2rem * 12);
         overflow: hidden;
         position: relative;
         padding-right: 16px;
         transition: all 0.5s ease;
-        display: -webkit-box;
-        -webkit-box-orient: vertical; 
-        -webkit-line-clamp: 12;
-        line-clamp: 12;
-        text-overflow: ellipsis;
+
 
         .title {
           font-weight: 500;
         }
 
         &.expanded {
-          max-height: calc(1.2rem * 20);
           overflow-y: auto;
-          height: 100%;
+          height: calc(1.2rem * 30);
+          display: block;
+        
         }
       }
       .show-more-btn {

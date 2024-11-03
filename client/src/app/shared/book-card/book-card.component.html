@@ -1,4 +1,4 @@
-<div class="book-card" *ngIf="book" (click)="navigateTo()">
+<div class="book-card" *ngIf="book" (click)="navigateToDetails()">
   <div class="cover">
     <img [src]="book.coverURL" alt="book cover" />
   </div>
@@ -7,6 +7,7 @@
     mat-button
     [matMenuTriggerFor]="menu"
     (mousedown)="onIconButtonClick($event)"
+    (click)="stopPropagation($event)"
   >
     <mat-icon fontSet="material-icons-round" class="icon">add</mat-icon>
     <mat-menu #menu="matMenu">
@@ -31,6 +32,6 @@
       <span *ngIf="book.publisher && book.publishedDate"> - </span>
       <span *ngIf="book.publishedDate">{{ book.getpublishedDate() }}</span>
     </span>
-    <app-rating [rating]="book.rating!"></app-rating>
+    <app-rating [rating]="book.rating!" [showRating]="true"></app-rating>
   </div>
 </div>

@@ -47,6 +47,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { BookCardComponent } from './book-card/book-card.component';
 import { BookListItemComponent } from './book-list-item/book-list-item.component';
 import { RatingComponent } from './rating/rating.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 const modules = [
   MatToolbarModule,
@@ -88,6 +89,7 @@ const modules = [
     BookCardComponent,
     BookListItemComponent,
     RatingComponent,
+    SpinnerComponent,
   ],
   imports: [CommonModule, modules, FormsModule],
   exports: [
@@ -102,6 +104,8 @@ const modules = [
     BookCardComponent,
     BookListItemComponent,
     RatingComponent,
+    SpinnerComponent,
+
   ],
 })
 export class SharedModule {}

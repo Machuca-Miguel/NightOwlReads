@@ -8,6 +8,7 @@ import { Book } from 'src/app/models/book-model';
 })
 export class BookListComponent implements OnInit {
   @Input() bookList: Book[] = [];
+  @Input() viewType: 'cards' | 'list' = 'cards'; 
 
   constructor() {}
 

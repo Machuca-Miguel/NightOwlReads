@@ -1,1 +1,46 @@
-<p>book-list-item works!</p>
+<div class="book-list-item" *ngIf="book" (click)="navigateToDetails()" >
+  <div class="cover">
+    <img [src]="book.coverURL" alt="book cover" />
+  </div>
+  <div class="content">
+    <span class="title">{{ book.title }}</span>
+    <span class="categories">
+      <span
+        *ngIf="book.categories && book.categories.length > 0"
+        class="hashtag"
+        >#</span
+      >{{ book.getcategories() }}
+    </span>
+    <span class="publish">
+      <span *ngIf="book.publisher">{{ book.publisher }}</span>
+      <span *ngIf="book.publisher && book.publishedDate"> - </span>
+      <span *ngIf="book.publishedDate">{{ book.getpublishedDate() }}</span>
+    </span>
+  </div>
+  <div class="rating-container">
+    <span>Average rating</span>
+    <app-rating [rating]="book.rating!"></app-rating>
+    <span *ngIf="book.totalRatings">
+      {{ book.rating }}
+      <span> / </span>
+      <span>{{ book.totalRatings }}</span>
+    </span>
+  </div>
+  <div class="book-actions">
+    <div
+    class="icon-button"
+    mat-button
+    [matMenuTriggerFor]="menu"
+    (mousedown)="onIconButtonClick($event)"
+    (click)="stopPropagation($event)"
+  >
+    <mat-icon fontSet="material-icons-round" class="icon">add</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>To read</button>
+      <button mat-menu-item>Reading</button>
+      <button mat-menu-item>Read</button>
+      <button mat-menu-item>Whislist</button>
+    </mat-menu>
+  </div>
+  </div>
+</div>

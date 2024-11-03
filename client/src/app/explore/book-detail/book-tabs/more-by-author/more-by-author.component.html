@@ -1,1 +1,10 @@
-<p>more-by-author works!</p>
+<div class="book-author-tab">
+  <h2>
+    More about
+    <span class="accent">
+      {{ book.getAuthors() }}
+    </span>
+  </h2>
+  <hr />
+  <app-book-list [bookList]="authorBookList" [viewType]="'list'">  </app-book-list>
+</div>

@@ -11,6 +11,7 @@ import {
 import { ActivatedRoute } from '@angular/router';
 import { Book } from 'src/app/models/book-model';
 import { GoogleBooksApiService } from 'src/app/services/api/google-books-api.service';
+import { SpinnerService } from 'src/app/services/spinner/spinner.service';
 
 @Component({
   selector: 'app-book-detail',
@@ -28,10 +29,12 @@ export class BookDetailComponent implements OnInit, AfterViewChecked {
   constructor(
     private route: ActivatedRoute,
     public googleBookApi: GoogleBooksApiService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private spinnerService: SpinnerService
   ) {}
 
   ngOnInit(): void {
+this.spinnerService.show();
     this.route.params.subscribe((params) => {
       this.bookId = params['id'];
       this.googleBookApi.getBookDetails(this.bookId).subscribe((book) => {

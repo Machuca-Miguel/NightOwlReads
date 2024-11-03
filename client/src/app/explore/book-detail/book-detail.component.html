@@ -23,7 +23,7 @@
       ></app-rating>
       <div *ngIf="book.description" class="book-description" #description  [class.expanded]="isExpanded">
         <span class="title">Sinopsis</span>
-        <p class="inner-HTML" [innerHTML]="book.description"></p>
+        <div class="inner-HTML" [innerHTML]="book.description"></div>
       </div>
       <button  *ngIf="showButton"  (click)="toggleDescription()" class="show-more-btn">
         {{ isExpanded ? "Show Less" : "Show More" }}

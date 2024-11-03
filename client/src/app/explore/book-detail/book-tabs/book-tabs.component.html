@@ -1,5 +1,5 @@
 <div  class="small-tab-group">
-<mat-tab-group>
+<mat-tab-group [(selectedIndex)]="selectedIndex">
   <mat-tab label="Overview">
     <app-overview [book]="book"></app-overview>
   </mat-tab>
