@@ -132,8 +132,7 @@ export class Book extends BaseModelId<BookInterface> implements BookInterface {
       ISBN_13: googleBook.volumeInfo.industryIdentifiers?.find(identifier => identifier.type === 'ISBN_13')?.identifier,
     };
     const book = new Book(bookParams);
-    console.log(book);
-    
+
     book.populate(bookParams);
     return book;
   }

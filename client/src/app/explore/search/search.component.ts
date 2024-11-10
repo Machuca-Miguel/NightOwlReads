@@ -19,12 +19,10 @@ export class SearchComponent implements OnInit {
   handleSearch(query: string) {
     this.searchQuery = query;
     this.googleBooksApi.searchBooks(query).subscribe((data) => {
-      console.log(data);
 
       this.bookList = data.items.map((book) => {
         return Book.createFromGoogleBookResponse(book);
       });
-      console.log(this.bookList);
     });
   }
 }

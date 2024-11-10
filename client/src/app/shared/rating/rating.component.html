@@ -1,6 +1,6 @@
 <div class="rating">
   <ng-container *ngFor="let star of stars">
-    <mat-icon  [ngClass]="getStarIcon(star)" class="star-icon" fontSet="material-icons-round"> {{getStarIcon(star) }}</mat-icon>
+    <mat-icon   [ngStyle]="{'font-size': size}" [ngClass]="getStarIcon(star)" class="star-icon" fontSet="material-icons-round"> {{getStarIcon(star) }}</mat-icon>
   </ng-container>
-  <span *ngIf="totalRatings > 0  && showRating" class="total-ratings">{{rating}} / {{ totalRatings }}</span>
+  <span *ngIf="totalRatings > 0  && showRating" class="total-ratings">{{ rating  }} / {{ totalRatings | number:'1.0-0' }}</span>
 </div>

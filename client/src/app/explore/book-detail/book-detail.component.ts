@@ -26,6 +26,11 @@ export class BookDetailComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('description') description!: ElementRef;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.checkOverflow();
+  }
+
   constructor(
     private route: ActivatedRoute,
     public googleBookApi: GoogleBooksApiService,
@@ -34,11 +39,12 @@ export class BookDetailComponent implements OnInit, AfterViewChecked {
   ) {}
 
   ngOnInit(): void {
-this.spinnerService.show();
+    this.spinnerService.show();
     this.route.params.subscribe((params) => {
       this.bookId = params['id'];
       this.googleBookApi.getBookDetails(this.bookId).subscribe((book) => {
         this.book = Book.createFromGoogleBookResponse(book);
+        this.spinnerService.hide();
       });
     });
   }
@@ -47,21 +53,19 @@ this.spinnerService.show();
     this.checkOverflow();
   }
 
-  @HostListener('window:resize', ['$event'])
-  onResize(event: Event): void {
-    this.checkOverflow();
-  }
-
   public toggleDescription() {
     this.isExpanded = !this.isExpanded;
-    this.showButton = true;
+    this.checkOverflow();
   }
 
   private checkOverflow(): void {
     if (this.description) {
       const element = this.description.nativeElement;
-      this.showButton = element.scrollHeight > element.clientHeight;
-      this.cdr.detectChanges(); // Mark for check after view checked
+      if (element.scrollHeight > element.clientHeight) {
+        this.showButton = true;
+      }
+
+      this.cdr.detectChanges();
     }
   }
 }

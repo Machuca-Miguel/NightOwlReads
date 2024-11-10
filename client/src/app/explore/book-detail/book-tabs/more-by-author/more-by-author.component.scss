@@ -1,13 +1,15 @@
 @import "../../../../../assets/styles/variables/variables";
+@import "../../../../../assets/styles/variables/mixins";
 
-.book-author-tab{
+.book-author-tab {
   h2 {
-    color: $White;
+    color: $Secondary_theme;
     font-size: 1.5rem;
     margin: 0;
     font-weight: 500;
-    .accent{
-      color: $Secondary_theme;
+    .accent {
+      color: $Secondary_white;
+      filter: brightness(0.9);
     }
   }
   hr {
@@ -16,5 +18,61 @@
     border: 1px solid $Secondary_theme;
     opacity: 1;
   }
+  .author-info {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    place-items: center;
 
+    padding: 0 16px;
+    gap: 1rem;
+
+    .details-list {
+      color: $Tertiary_white;
+      display: grid;
+      padding: 4px 16px;
+      grid-template-columns: max-content 1fr max-content 1fr;
+      grid-auto-rows: max-content;
+      align-items: center;
+      gap: 0.5rem 1rem;
+
+      .detail-item {
+        display: contents;
+        .label {
+          text-align: left;
+          font-size: 1rem;
+          color: $Disabled;
+          font-weight: 300;
+        }
+        .value {
+          text-align: left;
+          @include line-clamp(1);
+          font-size: 1rem;
+          font-weight: 400;
+        }
+      }
+    }
+    .author-bio {
+      grid-column: span 2;
+      padding: 0 16px;
+      font-size: 1rem;
+      color: $Disabled;
+      font-weight: 300;
+      align-self: flex-start;
+      text-align: start;
+      place-self: start;
+    }
+    .author-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
 }

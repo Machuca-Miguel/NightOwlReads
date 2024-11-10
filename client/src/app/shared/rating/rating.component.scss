@@ -5,20 +5,13 @@
   align-items: center;
 
   .star-icon {
-    font-size: 24px;
     color: $Primary_theme;
-
+    height: fit-content;
+    width: fit-content;
   }
-
-  
-
-  
-
-
-
   .total-ratings {
-    font-size: 0.8rem;
-    margin-left: 4px;
-    color: $Hint_text; // Adjust color as needed
+    font-size: smaller;
+    color: $Hint_text;
+    margin-left: 0.5rem;
   }
 }

@@ -6,5 +6,62 @@
     </span>
   </h2>
   <hr />
-  <app-book-list [bookList]="authorBookList" [viewType]="'list'">  </app-book-list>
+  <div *ngIf="authorDetails">
+    <div class="author-info">
+      <div *ngIf="authorDetails.photos && authorDetails.photos.length > 0" class="author-photo">
+        <img
+          [src]="
+            'https://covers.openlibrary.org/b/id/' +
+            authorDetails.photos[0] +
+            '-L.jpg'
+          "
+          alt="Author photo"
+        />
+      </div>
+      <div class="details-list">
+        <div class="detail-item" *ngIf="authorDetails.birth_date">
+          <span class="label">Born</span>
+          <span class="value">{{ authorDetails.birth_date }}</span>
+        </div>
+        <div class="detail-item" *ngIf="authorDetails.death_date">
+          <span class="label">Died</span>
+          <span class="value">{{ authorDetails.death_date }}</span>
+        </div>
+        <div class="detail-item" *ngIf="authorDetails.top_work">
+          <span class="label">Top Work</span>
+          <span class="value">{{ authorDetails.top_work }}</span>
+        </div>
+        <div class="detail-item" *ngIf="authorDetails.getCategories()">
+          <span class="label">Top subjects</span>
+          <span class="value">{{ authorDetails.getCategories() }}</span>
+        </div>
+        <div class="detail-item" *ngIf="authorDetails.ratings_average">
+            <span class="label">Average rating</span>
+            <app-rating size="1rem" [rating]="authorDetails.ratings_average" [totalRatings]="authorDetails.ratings_count!" [showRating]="true"></app-rating>
+
+        </div>
+        <div
+          class="detail-item"
+          *ngIf="
+            authorDetails.alternate_names &&
+            authorDetails.alternate_names.length > 0
+          "
+        >
+          <span class="label">Also known as</span>
+          <span class="value">{{
+            authorDetails.alternate_names.join(", ")
+          }}</span>
+        </div>
+
+      </div>
+      <div class="author-bio" *ngIf="authorDetails.bio">
+
+        {{ authorDetails.bio }}
+      </div>
+    </div>
+  </div>
+  <app-book-list
+    [bookList]="authorBookList"
+    [viewType]="'list'"
+  ></app-book-list>
 </div>

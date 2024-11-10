@@ -11,7 +11,11 @@ import { AuthModule } from './auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { AchievementsModule } from './achievements/achievements.module';
 import { ExploreModule } from './explore/explore.module';
+import localEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+import { LOCALE_ID } from '@angular/core';
 
+registerLocaleData(localEs, 'es');
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +32,7 @@ import { ExploreModule } from './explore/explore.module';
     AchievementsModule,
     ExploreModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
